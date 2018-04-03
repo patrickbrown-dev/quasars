@@ -6,4 +6,3 @@ COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY . /app
-CMD bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RAILS_ENV:-development}

@@ -6,7 +6,7 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
   web:
     build: .
-    command: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RAILS_ENV:-development}
+    command: bundle exec puma -C config/puma.rb
     volumes:
       - .:/app
     ports:
