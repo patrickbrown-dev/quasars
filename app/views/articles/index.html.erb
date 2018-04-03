@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Articles</h1>
+
+<%= link_to 'New Article', new_article_path %>
+
+<ul>
+  <% @articles.each do |article| %>
+  <li>
+    <strong><%= link_to(article.title, article.url) %></strong> <br />
+    <small>Posted by <%= article.user.email %> at <%= link_to(article.created_at, article) %> |
+      <%= link_to 'Edit', edit_article_path(article) %> |
+      <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></small>
+  </li>
+  <% end %>
+</ul>
