@@ -1,24 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @article.user.id %>
-</p>
+<h2><%= link_to(@article.title, @article.url) %></h2>
+<small>Posted by <%= @article.user.email %> at <%= link_to(@article.created_at, @article) %>
+  <% if user_signed_in? %>
+  | <%= link_to 'Edit', edit_article_path(@article) %>
+  | <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</small>
 
+<% unless @article.description.nil? %>
 <p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @article.url %>
-</p>
-
-<p>
-  <strong>Description:</strong>
   <%= @article.description %>
 </p>
+<% end %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', "/" %>
