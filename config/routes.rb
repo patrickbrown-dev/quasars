@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get "/" => "index#index"
+  resources :articles
+  get "/healthcheck" => "healthcheck#index"
 end
