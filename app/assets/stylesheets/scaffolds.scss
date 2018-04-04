@@ -1,12 +1,14 @@
 nav {
-    display: inline-block;
-    h1,ul,li {
+    img,h1,ul,li {
         display: inline-block;
+    }
+    img {
+        margin-bottom: -6px;
     }
 }
 
 body {
-    max-width:666px;
+    max-width:768px;
     margin:0 auto;
     background-color: #fff;
     color: #333;
