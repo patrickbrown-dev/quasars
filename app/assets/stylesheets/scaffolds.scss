@@ -1,23 +1,18 @@
 nav {
-    display:inline-block;
-    h1 {
-        display:inline-block;
-    }
-    ul {
-        display:inline-block;
-    }
-    li {
+    display: inline-block;
+    h1,ul,li {
         display: inline-block;
     }
 }
 
 body {
-  background-color: #fff;
-  color: #333;
-  margin: 33px;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+    max-width:666px;
+    margin:0 auto;
+    background-color: #fff;
+    color: #333;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
 }
 
 p, ol, ul, td {
