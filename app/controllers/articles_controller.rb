@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :user_consistency_check, only: [:edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
@@ -11,6 +12,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @comment = Comment.new(user_id: current_user.id, article_id: @article.id)
   end
 
   # GET /articles/new
@@ -72,5 +74,12 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:user_id, :title, :url, :description)
+    end
+
+    def user_consistency_check
+      if current_user != @article.user
+        flash.alert = "You're not authorized to perform that action."
+        redirect_to @article
+      end
     end
 end
