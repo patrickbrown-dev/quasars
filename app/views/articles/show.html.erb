@@ -14,7 +14,11 @@
 </p>
 <% end %>
 
+<% if user_signed_in? %>
 <%= render '/comments/form', comment: @comment %>
+<% else %>
+<p><%= link_to 'Sign In', new_user_session_path %> to comment.</p>
+<% end %>
 
 <% @article.comments.each do |comment| %>
 <p>

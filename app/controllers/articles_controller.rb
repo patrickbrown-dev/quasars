@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @comment = Comment.new(user_id: current_user.id, article_id: @article.id)
+    @comment = Comment.new(user_id: current_user.try(:id), article_id: @article.id)
   end
 
   # GET /articles/new
