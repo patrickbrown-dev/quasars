@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= link_to(@article.title, @article.url) %></h2>
-<small>Posted by <%= @article.user.email %> <%= time_ago_in_words(@article.created_at) %> ago
+<small>Posted by <%= @article.user.username %> <%= time_ago_in_words(@article.created_at) %> ago
   <% if user_signed_in? && current_user == @article.user %>
   | <%= link_to 'Edit', edit_article_path(@article) %>
   | <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -23,7 +23,7 @@
 <% @article.comments.order(created_at: :desc).each do |comment| %>
 <p>
   <small>
-    <strong><%= comment.user.email %></strong> posted <%=  time_ago_in_words(comment.created_at) %> ago
+    <strong><%= comment.user.username %></strong> posted <%=  time_ago_in_words(comment.created_at) %> ago
     <% if user_signed_in? && current_user == comment.user %>
     | <%= link_to 'Edit', edit_comment_path(comment) %>
     | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
