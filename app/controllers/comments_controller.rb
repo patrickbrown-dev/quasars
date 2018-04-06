@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update]
+  before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :user_consistency_check, only: [:edit, :update, :destroy]
 
   # GET /comments/1/edit
   def edit
@@ -39,9 +40,11 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    article = @comment.article
     @comment.destroy
+
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to article, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -55,5 +58,12 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:article_id, :user_id, :body)
+    end
+
+    def user_consistency_check
+      if current_user != @comment.user
+        flash.alert = "You're not authorized to perform that action."
+        redirect_to @comment.article
+      end
     end
 end
