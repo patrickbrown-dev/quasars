@@ -2,15 +2,25 @@
 
 <ul>
   <% @articles.each do |article| %>
-  <li>
-    <strong><%= link_to article.title, article.url %></strong> <br>
-    <small>Posted by <%= article.user.username %> <%= time_ago_in_words(article.created_at) %> ago
-      | <%= link_to "#{article.comments.count} comments", article %>
-      <% if user_signed_in? && current_user.id == article.user.id %>
-      | <%= link_to 'Edit', edit_article_path(article) %>
-      | <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <li style="list-style: none; display: flex; padding-bottom: 8px;">
+    <div style="text-align: center;">
+      <% if article.upvoted_by_user?(current_user) %>
+      <%= link_to '▲', '#', class: "upvoter upvoted", value: article.id %><br>
+      <% else %>
+      <%= link_to '▲', '#', class: "upvoter", value: article.id %><br>
       <% end %>
-    </small>
+      <%= article.votes.count %>
+    </div>
+    <div style="margin-left:16px;">
+      <strong><%= link_to article.title, article.url %></strong> <br>
+      <small>Posted by <%= article.user.username %> <%= time_ago_in_words(article.created_at) %> ago
+        | <%= link_to "#{article.comments.count} comments", article %>
+        <% if user_signed_in? && current_user.id == article.user.id %>
+        | <%= link_to 'Edit', edit_article_path(article) %>
+        | <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </small>
+    </div>
   </li>
   <% end %>
 </ul>
