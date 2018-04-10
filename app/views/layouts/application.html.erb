@@ -10,17 +10,17 @@
 
   <body>
     <nav>
-      <%= image_tag("logo.svg", size: "30x30", class: "d-inline-block align-top") %>
-      <h1><%= link_to 'Quasa.rs', '/' %></h1>
-
-      <ul>
-        <li><%= link_to 'New Article', new_article_path %></li>
-        <% if user_signed_in? %>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <% end %>
-      </ul>
+      <table>
+        <tr>
+          <td><strong><%= link_to 'Quasa.rs', '/' %></strong></td>
+          <td><%= link_to 'New Article', new_article_path %></td>
+          <% if user_signed_in? %>
+          <td><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></td>
+          <% else %>
+          <td><%= link_to 'Sign In', new_user_session_path %></td>
+          <% end %>
+        </tr>
+      </table>
     </nav>
 
     <div class="container">

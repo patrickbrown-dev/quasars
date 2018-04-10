@@ -1,9 +1,8 @@
 nav {
-    img,h1,ul,li {
-        display: inline-block;
-    }
-    img {
-        margin-bottom: -6px;
+    margin-top: 16px;
+
+    a, a:hover {
+        text-decoration: none;
     }
 }
 
