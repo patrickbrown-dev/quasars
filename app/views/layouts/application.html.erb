@@ -10,14 +10,17 @@
 
   <body>
     <nav>
-      <table>
+      <table style="width:770px;">
         <tr>
-          <td><strong><%= link_to 'Quasa.rs', '/' %></strong></td>
-          <td><%= link_to 'New Article', new_article_path %></td>
+          <td style="width:693px;">
+            <strong style="padding-right:10px;"><%= link_to 'Quasa.rs', '/' %></strong>
+            <%= link_to 'New Article', new_article_path %>
+          </td>
+
           <% if user_signed_in? %>
-          <td><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></td>
+          <td style="width:77px;text-align:right;"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></td>
           <% else %>
-          <td><%= link_to 'Sign In', new_user_session_path %></td>
+          <td style="width:77px;text-align:right;"><%= link_to 'Sign In', new_user_session_path %></td>
           <% end %>
         </tr>
       </table>
