@@ -6,11 +6,9 @@ class Article < ApplicationRecord
   validates :user, :title, :url, presence: true
   validates :url, uniqueness: true
 
+  scope :hot, -> { Article.order(created_at: :desc).order(karma: :desc) }
+
   def upvoted_by_user?(user)
     votes.where(user: user).any?
   end
-
-  scope :hot, -> {
-    Article.order(karma: :desc).order(created_at: :desc)
-  }
 end
