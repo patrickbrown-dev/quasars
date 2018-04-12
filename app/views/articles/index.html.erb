@@ -4,13 +4,13 @@
   <% @articles.each do |article| %>
 
   <tr>
-    <td>
+    <td style="width:30px;text-align:center;">
       <% if article.upvoted_by_user?(current_user) %>
       <%= link_to '▲', '#', class: "upvoter upvoted", value: article.id %><br>
       <% else %>
       <%= link_to '▲', '#', class: "upvoter", value: article.id %><br>
       <% end %>
-      <%= article.votes.count %>
+      <small><%= article.votes.count %></small>
     </td>
     <td>
       <strong><%= link_to article.title, article.url %></strong> <br>
