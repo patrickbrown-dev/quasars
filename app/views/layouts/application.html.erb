@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Astronomy.news</title>
+    <title>Quasars</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,17 +10,20 @@
 
   <body>
     <nav>
-      <%= image_tag("logo.svg", size: "30x30", class: "d-inline-block align-top") %>
-      <h1><%= link_to 'Astronomy.news', '/' %></h1>
+      <table style="width:770px;">
+        <tr>
+          <td style="width:693px;">
+            <strong style="padding-right:10px;"><%= link_to 'Quasars', '/' %></strong>
+            <%= link_to 'New Article', new_article_path %>
+          </td>
 
-      <ul>
-        <li><%= link_to 'New Article', new_article_path %></li>
-        <% if user_signed_in? %>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <% end %>
-      </ul>
+          <% if user_signed_in? %>
+          <td style="width:77px;text-align:right;"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></td>
+          <% else %>
+          <td style="width:77px;text-align:right;"><%= link_to 'Sign In', new_user_session_path %></td>
+          <% end %>
+        </tr>
+      </table>
     </nav>
 
     <div class="container">
