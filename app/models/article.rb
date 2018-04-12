@@ -9,4 +9,8 @@ class Article < ApplicationRecord
   def upvoted_by_user?(user)
     votes.where(user: user).any?
   end
+
+  scope :hot, -> {
+    Article.order(karma: :desc).order(created_at: :desc)
+  }
 end
