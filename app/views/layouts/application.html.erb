@@ -15,13 +15,16 @@
           <td style="width:30px;text-align:center;">
             <%= link_to image_tag('logo2.svg', size: '30x30'), '/' %>
           </td>
-          <td style="width:663px;">
-            <strong style="padding-right:10px;"><%= link_to 'Quasars', '/' %></strong>
+          <td style="width:621px;">
+            <strong style="padding-right:12px;"><%= link_to 'Quasars', '/' %></strong>
             <%= link_to 'New Article', new_article_path %>
           </td>
 
           <% if user_signed_in? %>
-          <td style="width:77px;text-align:right;"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></td>
+          <td style="width:117px;text-align:right;">
+            <%= link_to current_user.username, '/u', style: "padding-right: 12px" %>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          </td>
           <% else %>
           <td style="width:77px;text-align:right;"><%= link_to 'Sign In', new_user_session_path %></td>
           <% end %>
