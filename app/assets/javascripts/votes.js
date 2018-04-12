@@ -10,13 +10,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
       e.preventDefault();
       var articleId = this.dataset.value;
       var xhr = new XMLHttpRequest();
-      var here = this;
+      var current = this;
 
       if (this.classList.contains("upvoted")) {
         xhr.onreadystatechange = function() {
           if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.status == 200 && xhr.response == 'ok') {
-              here.classList.remove("upvoted");
+              current.classList.remove("upvoted");
               var voteCount = document.getElementById("votes-" + articleId);
               voteCount.innerHTML = Number(voteCount.innerHTML) - 1;
             }
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         xhr.onreadystatechange = function() {
           if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.status == 200 && xhr.response == 'ok') {
-              here.classList.add("upvoted");
+              current.classList.add("upvoted");
               var voteCount = document.getElementById("votes-" + articleId);
               voteCount.innerHTML = Number(voteCount.innerHTML) + 1;
             }
