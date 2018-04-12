@@ -1,36 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= link_to(@article.title, @article.url) %></h2>
-<small>Posted by <%= @article.user.username %> <%= time_ago_in_words(@article.created_at) %> ago
-  <% if user_signed_in? && current_user == @article.user %>
-  | <%= link_to 'Edit', edit_article_path(@article) %>
-  | <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+<table>
+  <tr>
+    <td style="width:30px;text-align:center;">
+      <% if @article.upvoted_by_user?(current_user) %>
+      <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => @article.id %><br>
+      <% else %>
+      <%= link_to '▲', '#', class: "upvoter", "data-value" => @article.id %><br>
+      <% end %>
+      <small id="votes-<%= @article.id %>"><%= @article.karma %></small>
+    </td>
+    <td>
+      <strong><%= link_to @article.title, @article.url %></strong> <br>
+      <small>Posted by <%= @article.user.username %> <%= time_ago_in_words(@article.created_at) %> ago
+        <% if user_signed_in? && current_user.id == @article.user.id %>
+        | <%= link_to 'Edit', edit_article_path(@article) %>
+        | <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </small>
+    </td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td>
+      <% unless @article.description.nil? %>
+      <p>
+        <%= @article.description %>
+      </p>
+    </td>
+  </tr>
   <% end %>
-</small>
 
-<% unless @article.description.nil? %>
-<p>
-  <%= @article.description %>
-</p>
-<% end %>
+  <tr>
+    <td></td>
+    <td>
+      <% if user_signed_in? %>
+      <%= render '/comments/form', comment: @comment %>
+      <% else %>
+      <p><%= link_to 'Sign In', new_user_session_path %> to comment.</p>
+      <% end %>
+    </td>
+  </tr>
 
-<% if user_signed_in? %>
-<%= render '/comments/form', comment: @comment %>
-<% else %>
-<p><%= link_to 'Sign In', new_user_session_path %> to comment.</p>
-<% end %>
-
-<% @article.comments.order(created_at: :desc).each do |comment| %>
-<p>
-  <small>
-    <strong><%= comment.user.username %></strong> posted <%=  time_ago_in_words(comment.created_at) %> ago
-    <% if user_signed_in? && current_user == comment.user %>
-    | <%= link_to 'Edit', edit_comment_path(comment) %>
-    | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-    </small><br />
-  <%= comment.body %>
-</p>
-<% end %>
-
-<%= link_to 'Back', "/" %>
+  <% @article.comments.order(created_at: :desc).each do |comment| %>
+  <tr>
+    <td></td>
+    <td>
+      <small>
+        <strong><%= comment.user.username %></strong> posted <%=  time_ago_in_words(comment.created_at) %> ago
+        <% if user_signed_in? && current_user == comment.user %>
+        | <%= link_to 'Edit', edit_comment_path(comment) %>
+        | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </small><br />
+      <%= comment.body %>
+    </td>
+  </tr>
+  <% end %>
+</table>
