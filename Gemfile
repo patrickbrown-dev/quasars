@@ -19,6 +19,8 @@ gem 'devise', '~> 4.4.3'
 gem 'kaminari-core', '~> 1.1.1'
 gem 'kaminari'
 
+gem 'sendgrid-ruby'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
