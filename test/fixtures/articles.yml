@@ -2,12 +2,14 @@
 
 one:
   user: one
+  uid: abc-my_string_1
   title: MyString1
   url: MyString1
   description: MyString1
 
 two:
   user: two
+  uid: abc-my_string_2
   title: MyString2
   url: MyString2
   description: MyString2

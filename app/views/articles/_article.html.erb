@@ -14,8 +14,8 @@
       | <%= link_to "#{article.comments.count} comments", article_path(article.uid) %>
       <% end %>
       <% if user_signed_in? && current_user.id == article.user.id %>
-      | <%= link_to 'Edit', edit_article_path(article) %>
-      | <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+      | <%= link_to 'Edit', edit_article_path(article.uid) %>
+      | <%= link_to 'Destroy', article_path(article.uid), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </small>
   </td>

@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to @comment.article, notice: 'Comment was successfully created.'
+      redirect_to article_path(@comment.article.uid), notice: 'Comment was successfully created.'
     else
       render :new
     end
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to @comment.article, notice: 'Comment was successfully updated.'
+      redirect_to article_path(@comment.article.uid), notice: 'Comment was successfully updated.'
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     article = @comment.article
     @comment.destroy
 
-    redirect_to article, notice: 'Comment was successfully destroyed.'
+    redirect_to article_path(article.uid), notice: 'Comment was successfully destroyed.'
   end
 
   private
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
   def user_consistency_check
     if current_user != @comment.user
       flash.alert = "You're not authorized to perform that action."
-      redirect_to @comment.article
+      redirect_to article_path(@comment.article.uid)
     end
   end
 end

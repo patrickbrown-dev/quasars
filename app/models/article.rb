@@ -3,10 +3,10 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
 
-  validates :user, :title, :url, :uid, presence: true
+  validates :user, :title, :url, presence: true
   validates :url, :uid, uniqueness: true
 
-  before_save :set_uid
+  before_create :set_uid
 
   scope :hot, -> { Article.order(created_at: :desc).order(karma: :desc) }
 

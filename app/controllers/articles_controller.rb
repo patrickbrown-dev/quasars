@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     @article.user = current_user
 
     if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to article_path(@article.uid), notice: 'Article was successfully created.'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
+      redirect_to article_path(@article.uid), notice: 'Article was successfully updated.'
     else
       render :edit
     end
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
   def user_consistency_check
     if current_user != @article.user
       flash.alert = "You're not authorized to perform that action."
-      redirect_to @article
+      redirect_to show_article(@article.uid)
     end
   end
 end

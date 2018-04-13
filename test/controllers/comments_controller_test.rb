@@ -13,7 +13,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
       post comments_url, params: { comment: { article_id: @comment.article_id, body: @comment.body, user_id: @comment.user_id } }
     end
 
-    assert_redirected_to article_path(Comment.last.article)
+    assert_redirected_to article_path(Comment.last.article.uid)
   end
 
   test "should get edit" do
@@ -24,7 +24,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   test "should update comment" do
     patch comment_url(@comment), params: { comment: { article_id: @comment.article_id, body: @comment.body, user_id: @comment.user_id } }
 
-    assert_redirected_to article_path(@comment.article)
+    assert_redirected_to article_path(@comment.article.uid)
   end
 
   test "should destroy comment" do
@@ -32,6 +32,6 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
       delete comment_url(@comment)
     end
 
-    assert_redirected_to article_path(@comment.article)
+    assert_redirected_to article_path(@comment.article.uid)
   end
 end
