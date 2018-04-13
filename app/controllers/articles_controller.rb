@@ -22,8 +22,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+    @article.karma = 1
 
     if @article.save
+      Vote.create!(user: current_user, article: @article)
       redirect_to article_path(@article.uid), notice: 'Article was successfully created.'
     else
       render :new
