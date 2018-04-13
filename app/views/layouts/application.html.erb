@@ -22,7 +22,7 @@
 
           <% if user_signed_in? %>
           <td style="width:117px;text-align:right;">
-            <%= link_to current_user.username, '/u', style: "padding-right: 12px" %>
+            <%= link_to current_user.username, user_path(current_user.username), style: "padding-right: 12px" %>
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
           </td>
           <% else %>

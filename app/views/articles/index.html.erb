@@ -3,26 +3,8 @@
 <table>
   <% @articles.each do |article| %>
 
-  <tr>
-    <td style="width:30px;text-align:center;">
-      <% if article.upvoted_by_user?(current_user) %>
-      <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => article.id %><br>
-      <% else %>
-      <%= link_to '▲', '#', class: "upvoter", "data-value" => article.id %><br>
-      <% end %>
-      <small id="votes-<%= article.id %>"><%= article.karma %></small>
-    </td>
-    <td>
-      <strong><%= link_to article.title, article.url %></strong> <br>
-      <small>Posted by <%= link_to article.user.username, article.user %> <%= time_ago_in_words(article.created_at) %> ago
-        | <%= link_to "#{article.comments.count} comments", article %>
-        <% if user_signed_in? && current_user.id == article.user.id %>
-        | <%= link_to 'Edit', edit_article_path(article) %>
-        | <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </small>
-    </td>
-  </tr>
+  <%= render 'article', article: article, locals: { show_description?: false, show_comments?: true } %>
+
   <% end %>
 </table>
 

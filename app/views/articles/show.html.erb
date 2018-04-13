@@ -1,36 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <table>
-  <tr>
-    <td style="width:30px;text-align:center;">
-      <% if @article.upvoted_by_user?(current_user) %>
-      <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => @article.id %><br>
-      <% else %>
-      <%= link_to '▲', '#', class: "upvoter", "data-value" => @article.id %><br>
-      <% end %>
-      <small id="votes-<%= @article.id %>"><%= @article.karma %></small>
-    </td>
-    <td>
-      <strong><%= link_to @article.title, @article.url %></strong> <br>
-      <small>Posted by <%= link_to @article.user.username, @article.user %> <%= time_ago_in_words(@article.created_at) %> ago
-        <% if user_signed_in? && current_user.id == @article.user.id %>
-        | <%= link_to 'Edit', edit_article_path(@article) %>
-        | <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </small>
-    </td>
-  </tr>
 
-  <tr>
-    <td></td>
-    <td>
-      <% unless @article.description.nil? %>
-      <p>
-        <%= @article.description %>
-      </p>
-    </td>
-  </tr>
-  <% end %>
+  <%= render 'article', article: @article, locals: { show_description?: true, show_comments?: false } %>
 
   <tr>
     <td></td>
@@ -48,7 +20,7 @@
     <td></td>
     <td>
       <small>
-        <strong><%= link_to comment.user.username, comment.user %></strong>
+        <strong><%= link_to comment.user.username, user_path(comment.user.username) %></strong>
         <% if comment.user == @article.user %>[OP]<% end %>
         posted <%=  time_ago_in_words(comment.created_at) %> ago
         <% if user_signed_in? && current_user == comment.user %>
