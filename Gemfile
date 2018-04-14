@@ -20,6 +20,7 @@ gem 'kaminari-core', '~> 1.1.1'
 gem 'kaminari'
 
 gem 'sendgrid-ruby'
+gem 'exception_notification'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
