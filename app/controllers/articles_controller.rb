@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
 
   private
   def set_article
-    @article = Article.find_by(uid: params[:uid])
+    @article = Article.find_by!(uid: params[:uid])
   end
 
   def article_params
