@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:current]
 
-  def current
-    @user = current_user
+  def index
+    page = params[:page] || 1
+    @users = User.all.page(page).per(20)
   end
 
   def show
