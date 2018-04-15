@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   def karma
-    articles.map(&:karma).reduce(:+)
+    articles.map(&:karma).reduce(:+) || 0
   end
 end
