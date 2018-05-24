@@ -58,6 +58,9 @@ GEM
     capistrano-rails (1.3.1)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -227,7 +230,9 @@ DEPENDENCIES
   bcrypt (~> 3.1.11)
   byebug
   capistrano (~> 3.10)
+  capistrano-bundler (~> 1.3)
   capistrano-rails (~> 1.3)
+  capistrano-rvm
   capybara (~> 2.13)
   devise (~> 4.4.3)
   exception_notification
@@ -250,4 +255,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

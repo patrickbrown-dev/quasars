@@ -2,7 +2,9 @@
 lock "~> 3.10.2"
 
 set :application, "quasars"
-set :repo_url, "git@github.com:xkpb/quasars.git"
+set :repo_url, "https://github.com/xkpb/quasars.git" # "git@github.com:xkpb/quasars.git"
+set :rvm_type, :system
+set :rvm_custom_path, '/usr/share/rvm'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

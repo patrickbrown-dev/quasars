@@ -7,8 +7,9 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
+set :stage, "production"
 server "blue.quasa.rs", user: "root", roles: %w{app web}
-server "db.quasa.rs", user: "root", roles: %w{db}
+# server "db.quasa.rs", user: "root", roles: %w{db}
 
 # role-based syntax
 # ==================
@@ -46,7 +47,7 @@ server "db.quasa.rs", user: "root", roles: %w{db}
 #    keys: %w(/home/rlisowski/.ssh/id_rsa),
 #    forward_agent: false,
 #    auth_methods: %w(password)
-#  }
+p#  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
