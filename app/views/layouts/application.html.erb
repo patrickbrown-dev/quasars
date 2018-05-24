@@ -17,7 +17,8 @@
           </td>
           <td style="width:601px;">
             <strong style="padding-right:12px;"><%= link_to 'Quasars', '/' %></strong>
-            <%= link_to 'New Article', new_article_path %>
+            <%= link_to 'New Article', new_article_path, style: "padding-right:12px" %>
+            <%= link_to 'About', about_path, style: "padding-right:12px" %>
           </td>
 
           <% if user_signed_in? %>

@@ -8,11 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: app_development
+  database: quasars_development
 
 test:
   <<: *default
-  database: app_test
+  database: quasars_test
 
 production:
   url: <%= ENV["DATABASE_URL"] %>

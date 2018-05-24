@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   devise_for :users
   get "/healthcheck" => "healthcheck#index"
   get "/healthcheck/deploy" => "healthcheck#deploy"
+  get "/about" => "about#index"
 end
