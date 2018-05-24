@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   delete "/votes" => "votes#destroy"
   devise_for :users
   get "/healthcheck" => "healthcheck#index"
+  get "/healthcheck/deploy" => "healthcheck#deploy"
 end

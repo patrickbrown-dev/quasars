@@ -7,8 +7,9 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
+set :stage, "production"
 server "green.quasa.rs", user: "root", roles: %w{app web}
-server "db.quasa.rs", user: "root", roles: %w{db}
+# server "db.quasa.rs", user: "root", roles: %w{db}
 
 # role-based syntax
 # ==================
