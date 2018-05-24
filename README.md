@@ -1,24 +1,17 @@
-# README
+# Quasars
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A lobste.rs-like for Astronomy, Meteorology, and Atmospheric Sciences.
 
-Things you may want to cover:
+## First Time Setup
 
-* Ruby version
+Instrument some docker magicks:
 
-* System dependencies
+```
+docker volume create --name=postgres-volume
+docker-compose build
+docker-compose up -d
+docker-compose run web rake db:create
+docker-compose run web rake db:migrate
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then navigate your browser to `localhost:3000`.

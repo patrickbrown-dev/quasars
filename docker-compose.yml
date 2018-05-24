@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - postgres-volume:/var/lib/postgresql/data
   web:
     build: .
     command: bundle exec puma -C config/puma.rb
@@ -13,3 +13,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+
+volumes:
+  postgres-volume:
+    external: true
