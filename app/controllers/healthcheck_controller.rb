@@ -1,11 +1,16 @@
 class HealthcheckController < ApplicationController
   def index
     ActiveRecord::Base.connection
-    render plain: "ok", status: 200
-  end
+    env     = Rails.env
+    deploy  = ENV.fetch("DEPLOY") { "local" }
+    sha     = `git log -n 1 --format=%h`
+    message = <<-MSG.strip_heredoc
+      status:\tok
+      env:\t#{env}
+      deploy:\t#{deploy}
+      sha:\t#{sha}
+    MSG
 
-  def deploy
-    deploy = ENV.fetch("DEPLOY") { "development" }
-    render plain: deploy, status: 200
+    render plain: message, status: 200
   end
 end
