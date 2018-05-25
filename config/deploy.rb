@@ -39,3 +39,12 @@ set :rvm_custom_path, '/usr/share/rvm'
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+namespace :deploy do
+  task :restart_quasars do
+    on roles(:all) do |host|
+      execute "service quasars restart"
+    end
+  end
+end
+
+after 'deploy:symlink:release', 'deploy:restart_quasars'
