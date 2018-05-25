@@ -1,0 +1,29 @@
+<tr>
+  <td></td>
+  <td>
+    <small>
+      <strong><%= link_to comment.user.username, user_path(comment.user.username) %></strong>
+      <% if comment.user == @article.user %>[OP]<% end %>
+      posted <%=  time_ago_in_words(comment.created_at) %> ago
+      <% if user_signed_in? && current_user == comment.user %>
+      | <%= link_to 'Edit', edit_comment_path(comment) %>
+      | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+      | <a href="#" class="reply" data-value="<%= comment.id %>">Reply</a>
+      <% end %>
+    </small><br />
+    <%= comment.body %>
+
+    <% @comment.parent_comment_id = comment.id %>
+    <div id="hidden-form-<%= comment.id %>" class="hidden-form">
+      <%= render '/comments/form', comment: @comment %>
+    </div>
+
+    <% if comment.comments.any? %>
+    <table style="margin-left: 24px;">
+      <% comment.comments.each do |child_comment| %>
+      <%= render '/comments/comment', comment: child_comment %>
+      <% end %>
+    </table>
+    <% end %>
+  </td>
+</tr>

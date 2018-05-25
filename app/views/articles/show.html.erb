@@ -15,21 +15,7 @@
     </td>
   </tr>
 
-  <% @article.comments.order(created_at: :desc).each do |comment| %>
-  <tr>
-    <td></td>
-    <td>
-      <small>
-        <strong><%= link_to comment.user.username, user_path(comment.user.username) %></strong>
-        <% if comment.user == @article.user %>[OP]<% end %>
-        posted <%=  time_ago_in_words(comment.created_at) %> ago
-        <% if user_signed_in? && current_user == comment.user %>
-        | <%= link_to 'Edit', edit_comment_path(comment) %>
-        | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </small><br />
-      <%= comment.body %>
-    </td>
-  </tr>
+  <% @article.comments.where(parent_comment_id: nil).order(created_at: :desc).each do |comment| %>
+  <%= render '/comments/comment', comment: comment %>
   <% end %>
 </table>

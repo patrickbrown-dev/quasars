@@ -13,9 +13,9 @@
 
   <%= form.hidden_field :article_id, value: comment.article_id %>
   <%= form.hidden_field :user_id, value: comment.user_id %>
+  <%= form.hidden_field :parent_comment_id, value: comment.parent_comment_id %>
 
   <div class="field">
-    <%= form.label "Reply" %>
     <%= form.text_area :body, id: :comment_body %>
   </div>
 

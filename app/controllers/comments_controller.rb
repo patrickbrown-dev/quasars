@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:article_id, :user_id, :body)
+    params.require(:comment).permit(:article_id, :user_id, :body, :parent_comment_id)
   end
 
   def user_consistency_check
