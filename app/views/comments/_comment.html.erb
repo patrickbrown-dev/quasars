@@ -8,11 +8,12 @@
       <% if user_signed_in? && current_user == comment.user %>
       | <%= link_to 'Edit', edit_comment_path(comment) %>
       | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-      | <a href="#" class="reply" data-value="<%= comment.id %>">Reply</a>
       <% end %>
-    </small><br />
-    <%= comment.body %>
+    </small>
 
+    <%= CommonMarker.render_html( comment.body, :DEFAULT).html_safe %>
+
+    <small><a href="#" class="reply" data-value="<%= comment.id %>">Reply</a></small>
     <% @comment.parent_comment_id = comment.id %>
     <div id="hidden-form-<%= comment.id %>" class="hidden-form">
       <%= render '/comments/form', comment: @comment %>
