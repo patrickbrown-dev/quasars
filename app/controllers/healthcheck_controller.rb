@@ -12,12 +12,10 @@ class HealthcheckController < ApplicationController
   def message(health)
     env     = Rails.env
     deploy  = ENV.fetch("DEPLOY") { "local" }
-    sha     = `git log -n 1 --format=%h`
     message = <<-MSG.strip_heredoc
       status:\t#{health}
       env:\t#{env}
       deploy:\t#{deploy}
-      sha:\t#{sha}
     MSG
   end
 end
