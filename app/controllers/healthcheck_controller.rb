@@ -4,6 +4,7 @@ class HealthcheckController < ApplicationController
     render plain: message("healthy"), status: 200
   rescue => e
     logger.error(e)
+    e.backtrace.map { |line| logger.error(line) }
     render plain: message("unhealthy"), status: 500
   end
 
