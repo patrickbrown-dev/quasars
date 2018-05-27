@@ -8,7 +8,11 @@
     <small id="votes-<%= article.id %>"><%= article.karma %></small>
   </td>
   <td>
+    <% if article.description_only? %>
+    <strong><%= link_to article.title, article_path(article.uid) %></strong>
+    <% else %>
     <strong><%= link_to article.title, article.url %></strong>
+    <% end %>
     <% unless article.description.empty? %>☶<% end %>
     <em><small><%= article.host %></small></em><br>
     <small>Posted by <%= link_to article.user.username, user_path(article.user.username) %> <%= time_ago_in_words(article.created_at) %> ago
