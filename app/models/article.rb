@@ -1,3 +1,19 @@
+class UrlValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    record.errors[attribute] << (options[:message] || "is not a URL") unless is_url?(value)
+  end
+
+  private
+  def is_url?(value)
+    uri = URI.parse(value)
+    %w(http https).include?(uri.scheme)
+  rescue URI::BadURIError
+    false
+  rescue URI::InvalidURIError
+    false
+  end
+end
+
 class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
@@ -5,6 +21,7 @@ class Article < ApplicationRecord
 
   validates :user, :title, :url, presence: true
   validates :url, :uid, uniqueness: true
+  validates :url, url: true
 
   before_create :set_uid
 
@@ -12,6 +29,11 @@ class Article < ApplicationRecord
 
   def upvoted_by_user?(user)
     votes.where(user: user).any?
+  end
+
+  def host
+    uri = URI.parse(url)
+    uri.host
   end
 
   private
