@@ -8,7 +8,9 @@
     <small id="votes-<%= article.id %>"><%= article.karma %></small>
   </td>
   <td>
-    <strong><%= link_to article.title, article.url %></strong> <em><small><%= article.host %></small></em><br>
+    <strong><%= link_to article.title, article.url %></strong>
+    <% unless article.description.nil? %>☶<% end %>
+    <em><small><%= article.host %></small></em><br>
     <small>Posted by <%= link_to article.user.username, user_path(article.user.username) %> <%= time_ago_in_words(article.created_at) %> ago
       <% if locals[:show_comments?] %>
       | <%= link_to "#{article.comments.count} comments", article_path(article.uid) %>
@@ -26,9 +28,7 @@
   <td></td>
   <td>
     <% unless @article.description.nil? %>
-    <p>
-      <%= @article.description %>
-    </p>
+    <%= CommonMarker.render_html( @article.description, :DEFAULT).html_safe %>
     <% end %>
   </td>
 </tr>
