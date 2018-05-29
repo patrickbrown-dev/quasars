@@ -20,7 +20,9 @@ class Article < ApplicationRecord
   has_many :votes, as: :voteable, dependent: :destroy
 
   validates :user, :title, presence: true
-  validates :url, :uid, uniqueness: true
+  validates :uid, uniqueness: true
+
+  validates :url, uniqueness: true, allow_blank: true
   validates :url, url: true
 
   validate :url_and_or_description
