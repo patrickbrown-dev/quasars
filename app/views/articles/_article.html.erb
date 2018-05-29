@@ -1,11 +1,11 @@
 <tr>
   <td style="width:30px;text-align:center;">
     <% if article.upvoted_by_user?(current_user) %>
-    <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => article.id %><br>
+    <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => article.id, "data-type" => "Article" %><br>
     <% else %>
-    <%= link_to '▲', '#', class: "upvoter", "data-value" => article.id %><br>
+    <%= link_to '▲', '#', class: "upvoter", "data-value" => article.id, "data-type" => "Article" %><br>
     <% end %>
-    <small id="votes-<%= article.id %>"><%= article.karma %></small>
+    <small id="votes-<%= article.id %>-<%= 'Article' %>"><%= article.karma %></small>
   </td>
   <td>
     <% if article.description_only? %>

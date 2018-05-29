@@ -2,32 +2,40 @@ class VotesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
-    @article = Article.find(vote_params[:article_id])
-    @article.karma += 1
-    @vote = Vote.new(article_id: @article.id)
+    @voteable = if vote_params[:voteable_type] == 'Article'
+                  Article.find(vote_params[:voteable_id])
+                else
+                  Comment.find(vote_params[:voteable_id])
+                end
+    @voteable.karma += 1
+    @vote = Vote.new(voteable: @voteable)
     @vote.user = current_user
 
     @vote.transaction do
       @vote.save!
-      @article.save!
+      @voteable.save!
     end
     render plain: 'ok'
   end
 
   def destroy
-    @article = Article.find(vote_params[:article_id])
-    @article.karma -= 1
-    @vote = Vote.where(article_id: @article.id, user_id: current_user.id).first
+    @voteable = if vote_params[:voteable_type] == 'Article'
+                  Article.find(vote_params[:voteable_id])
+                else
+                  Comment.find(vote_params[:voteable_id])
+                end
+    @voteable.karma -= 1
+    @vote = Vote.where(voteable: @voteable, user_id: current_user.id).first
 
     @vote.transaction do
       @vote.destroy!
-      @article.save!
+      @voteable.save!
     end
     render plain: 'ok'
   end
 
   private
   def vote_params
-    params.permit(:article_id)
+    params.permit(:voteable_id, :voteable_type)
   end
 end

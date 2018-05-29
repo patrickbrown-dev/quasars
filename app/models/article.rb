@@ -17,7 +17,7 @@ end
 class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_many :votes, dependent: :destroy
+  has_many :votes, as: :voteable, dependent: :destroy
 
   validates :user, :title, presence: true
   validates :url, :uid, uniqueness: true
@@ -27,7 +27,7 @@ class Article < ApplicationRecord
 
   before_create :set_uid
 
-  scope :hot, -> { Article.order(created_at: :desc).order(karma: :desc) }
+  scope :hot, -> { Article.order(karma: :desc).order(created_at: :desc) }
 
   def upvoted_by_user?(user)
     votes.where(user: user).any?

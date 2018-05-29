@@ -8,8 +8,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.karma = 1
 
     if @comment.save
+      Vote.create!(user: current_user, voteable: @comment)
       redirect_to article_path(@comment.article.uid), notice: 'Comment was successfully created.'
     else
       render :new

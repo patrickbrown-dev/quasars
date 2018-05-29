@@ -2,8 +2,8 @@
 
 one:
   user: one
-  article: one
+  voteable: one
 
 two:
   user: two
-  article: two
+  voteable: two

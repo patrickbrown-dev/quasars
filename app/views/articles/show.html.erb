@@ -15,7 +15,7 @@
     </td>
   </tr>
 
-  <% @article.comments.where(parent_comment_id: nil).order(created_at: :desc).each do |comment| %>
+  <% @article.comments.where(parent_comment_id: nil).hot.each do |comment| %>
   <%= render '/comments/comment', comment: comment %>
   <% end %>
 </table>

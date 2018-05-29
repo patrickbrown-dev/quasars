@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
     @article.karma = 1
 
     if @article.save
-      Vote.create!(user: current_user, article: @article)
+      Vote.create!(user: current_user, voteable: @article)
       redirect_to article_path(@article.uid), notice: 'Article was successfully created.'
     else
       render :new

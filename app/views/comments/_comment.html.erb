@@ -1,5 +1,12 @@
 <tr>
-  <td></td>
+  <td style="width:30px;text-align:center;display:block;">
+    <% if comment.upvoted_by_user?(current_user) %>
+    <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => comment.id, "data-type" => "Comment" %><br>
+    <% else %>
+    <%= link_to '▲', '#', class: "upvoter", "data-value" => comment.id, "data-type" => "Comment" %><br>
+    <% end %>
+    <small id="votes-<%= comment.id %>-<%= 'Comment' %>"><%= comment.karma %></small>
+  </td>
   <td>
     <small>
       <strong><%= link_to comment.user.username, user_path(comment.user.username) %></strong>
@@ -21,7 +28,7 @@
 
     <% if comment.comments.any? %>
     <table style="margin-left: 24px;">
-      <% comment.comments.each do |child_comment| %>
+      <% comment.comments.hot.each do |child_comment| %>
       <%= render '/comments/comment', comment: child_comment %>
       <% end %>
     </table>
