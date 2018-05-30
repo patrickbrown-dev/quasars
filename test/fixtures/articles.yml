@@ -4,12 +4,12 @@ one:
   user: one
   uid: abc-my_string_1
   title: MyString1
-  url: MyString1
+  url: http://mystring1.com
   description: MyString1
 
 two:
   user: two
   uid: abc-my_string_2
   title: MyString2
-  url: MyString2
+  url: https://mystring2.org
   description: MyString2

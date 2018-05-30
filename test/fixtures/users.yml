@@ -7,9 +7,7 @@
 one:
   username: "user1"
   email: "user1@email.com"
-# column: value
-#
+
 two:
   username: "user2"
   email: "user2@email.com"
-# column: value
