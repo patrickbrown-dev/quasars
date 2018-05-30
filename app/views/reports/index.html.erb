@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reports</h1>
+
+<table class="reports">
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>Type</th>
+      <th>Reporter</th>
+      <th>Offender</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.where(resolved_at: nil).order(created_at: :asc).each do |report| %>
+    <tr>
+      <td><%= time_ago_in_words report.created_at %></td>
+      <td><%= report.reportable_type %></td>
+      <td><%= link_to report.user.username, user_path(report.user.username) %></td>
+      <td><%= link_to report.reportable.user.username, user_path(report.reportable.user.username) %></td>
+      <td><%= link_to 'Show', report %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @report.description %>
+</p>
+
+<p>
+  <strong>Reporting User:</strong>
+  <%= link_to @report.user.username, user_path(@report.user.username) %>
+</p>
+
+<p>
+  <strong>Offending User:</strong>
+  <%= link_to @report.reportable.user.username, user_path(@report.reportable.user.username) %>
+</p>
+
+<p>
+  <strong>Reportable:</strong>
+  <% if @report.reportable_type == 'Article' %>
+
+  <%= link_to "Article (id:#{@report.reportable_id})", article_path(@report.reportable.uid) %>
+
+  <% else %>
+
+  <%= link_to "Comment (id:#{@report.reportable_id})", article_path(@report.reportable.article.uid) %>
+
+  <% end %>
+</p>
+
+<%= link_to 'Resolve', resolve_report_path(@report), method: :post %>
+<%= link_to 'Back', reports_path %>

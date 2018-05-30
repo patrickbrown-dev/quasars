@@ -19,7 +19,10 @@
       <% if locals[:show_comments?] %>
       | <%= link_to "#{article.comments.count} comments", article_path(article.uid) %>
       <% end %>
-      <% if user_signed_in? && current_user.id == article.user.id %>
+      <% if user_signed_in? %>
+      | <%= link_to 'Report', new_report_path(report: {reportable_id: article.id, reportable_type: article.class.to_s}) %>
+      <% end %>
+      <% if user_signed_in? && (current_user.id == article.user.id || current_user.moderator) %>
       | <%= link_to 'Edit', edit_article_path(article.uid) %>
       | <%= link_to 'Destroy', article_path(article.uid), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>

@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   root to: "articles#index"
+
   resources :articles, path: :a, param: :uid
   resources :comments, only: [:create, :edit, :update, :destroy]
+  resources :reports, only: [:index, :create, :show, :new] do
+    member do
+      post :resolve
+    end
+  end
 
   post "/votes" => "votes#create"
   delete "/votes" => "votes#destroy"

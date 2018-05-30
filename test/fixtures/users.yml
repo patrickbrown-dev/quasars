@@ -6,8 +6,10 @@
 #
 one:
   username: "user1"
+  moderator: true
   email: "user1@email.com"
 
 two:
   username: "user2"
+  moderator: false
   email: "user2@email.com"

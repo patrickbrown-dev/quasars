@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   belongs_to :user
 
   has_many :comments, dependent: :destroy
+  has_many :reports, as: :reportable, dependent: :destroy
 
   validates :user, :title, presence: true
   validates :uid, uniqueness: true

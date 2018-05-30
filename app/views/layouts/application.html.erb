@@ -20,7 +20,9 @@
             <span style="padding-right:12px;color:<%= ENV['DEPLOY'].try(:downcase) || 'red' %>">●</span>
 
             <%= link_to 'New Article', new_article_path, style: "padding-right:12px" %>
-            <%= link_to 'About', about_path, style: "padding-right:12px" %>
+            <% if user_signed_in? && current_user.moderator %>
+            <%= link_to 'Moderation Queue', reports_path, style: "padding-right:12px" %>
+            <% end %>
           </td>
 
           <% if user_signed_in? %>

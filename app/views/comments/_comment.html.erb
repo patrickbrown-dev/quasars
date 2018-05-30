@@ -12,7 +12,10 @@
       <strong><%= link_to comment.user.username, user_path(comment.user.username) %></strong>
       <% if comment.user == @article.user %>[OP]<% end %>
       posted <%=  time_ago_in_words(comment.created_at) %> ago
-      <% if user_signed_in? && current_user == comment.user %>
+      <% if user_signed_in? %>
+      | <%= link_to 'Report', new_report_path(report: {reportable_id: comment.id, reportable_type: comment.class.to_s}) %>
+      <% end %>
+      <% if user_signed_in? && (current_user == comment.user || current_user.moderator) %>
       | <%= link_to 'Edit', edit_comment_path(comment) %>
       | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>

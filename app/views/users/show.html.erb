@@ -6,6 +6,14 @@
     <td>Active user</td>
   </tr>
   <tr>
+    <td><strong>Priviledges:</strong></td>
+    <% if @user.moderator %>
+    <td>Moderator</td>
+    <% else %>
+    <td>User</td>
+    <% end %>
+  </tr>
+  <tr>
     <td><strong>Joined:</strong></td>
     <td><%= time_ago_in_words @user.created_at %> ago</td>
   </tr>
