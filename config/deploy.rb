@@ -2,7 +2,7 @@
 lock "~> 3.10.2"
 
 set :application, "quasars"
-set :repo_url, "https://github.com/xkpb/quasars.git" # "git@github.com:xkpb/quasars.git"
+set :repo_url, "https://github.com/kineticdial/quasars.git"
 set :rvm_type, :system
 set :rvm_custom_path, '/usr/share/rvm'
 
