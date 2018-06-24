@@ -26,11 +26,11 @@ gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'capybara', '~> 2.13'
+  gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop', '= 0.57.2', require: false
   gem 'selenium-webdriver'
-  gem 'factory_bot_rails'
 end
 
 group :development do
