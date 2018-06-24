@@ -8,6 +8,7 @@ AllCops:
     - 'config/deploy/*.rb'
     - 'bin/update'
     - 'bin/setup'
+    - 'vendor/**/*'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
