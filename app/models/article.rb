@@ -25,13 +25,18 @@ class Article < ApplicationRecord
   end
 
   private
+
   def set_uid
-    self.uid = "#{SecureRandom.hex(3)}-#{title.gsub(/[^0-9a-z ]/i, '').gsub(/\W/, '_').downcase}"
+    hex = SecureRandom.hex(3)
+    title_clean = title.gsub(/[^0-9a-z ]/i, '')
+                    .gsub(/\W/, '_')
+                    .downcase
+
+    self.uid = "#{hex}-#{title_clean}"
   end
 
   def url_and_or_description
-    if url.empty? && description.empty?
-      errors.add(:base, "Url and Description cannot both be empty")
-    end
+    return unless url.empty? && description.empty?
+    errors.add(:base, 'Url and Description cannot both be empty')
   end
 end

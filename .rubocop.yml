@@ -1,0 +1,32 @@
+AllCops:
+  Exclude:
+    - 'db/*.rb'
+    - 'db/migrate/*.rb'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'config/environments/*.rb'
+    - 'config/deploy/*.rb'
+    - 'bin/update'
+    - 'bin/setup'
+    - 'vendor/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Metrics/BlockLength:
+  Enabled: false

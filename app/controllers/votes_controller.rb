@@ -1,12 +1,8 @@
 class VotesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :set_voteable, only: [:create, :destroy]
 
   def create
-    @voteable = if vote_params[:voteable_type] == 'Article'
-                  Article.find(vote_params[:voteable_id])
-                else
-                  Comment.find(vote_params[:voteable_id])
-                end
     @voteable.karma += 1
     @vote = Vote.new(voteable: @voteable)
     @vote.user = current_user
@@ -19,11 +15,6 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    @voteable = if vote_params[:voteable_type] == 'Article'
-                  Article.find(vote_params[:voteable_id])
-                else
-                  Comment.find(vote_params[:voteable_id])
-                end
     @voteable.karma -= 1
     @vote = Vote.where(voteable: @voteable, user_id: current_user.id).first
 
@@ -35,6 +26,15 @@ class VotesController < ApplicationController
   end
 
   private
+
+  def set_voteable
+    @voteable = if vote_params[:voteable_type] == 'Article'
+                  Article.find(vote_params[:voteable_id])
+                else
+                  Comment.find(vote_params[:voteable_id])
+                end
+  end
+
   def vote_params
     params.permit(:voteable_id, :voteable_type)
   end

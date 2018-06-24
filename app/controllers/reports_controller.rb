@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :index, :show, :resolve]
+  before_action :authenticate_user!, only: [:new, :create, :index,
+                                            :show, :resolve]
   before_action :moderators_only!, only: [:index, :show, :resolve]
   before_action :set_report, only: [:show, :resolve]
 
@@ -7,8 +8,7 @@ class ReportsController < ApplicationController
     @reports = Report.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @report = Report.new(report_params)
@@ -34,9 +34,8 @@ class ReportsController < ApplicationController
   private
 
   def moderators_only!
-    unless current_user && current_user.moderator
-      raise ActionController::RoutingError.new('Not Found')
-    end
+    return if current_user&.moderator
+    raise ActionController::RoutingError, 'Not Found'
   end
 
   def set_report
@@ -44,6 +43,11 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:description, :reportable, :reportable_id, :reportable_type)
+    params.require(:report).permit(
+      :description,
+      :reportable,
+      :reportable_id,
+      :reportable_type
+    )
   end
 end
