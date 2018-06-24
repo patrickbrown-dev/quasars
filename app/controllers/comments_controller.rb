@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :user_consistency_check, only: %i[edit update destroy]
+  before_action :user_consistency_check, only: [:edit, :update, :destroy]
 
   def edit; end
 
