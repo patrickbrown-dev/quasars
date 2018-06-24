@@ -1,0 +1,16 @@
+AllCops:
+  Exclude:
+    - 'db/*.rb'
+    - 'db/migrate/*.rb'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'config/environments/*.rb'
+    - 'config/deploy/*.rb'
+    - 'bin/update'
+    - 'bin/setup'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
