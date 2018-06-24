@@ -23,3 +23,6 @@ Metrics/AbcSize:
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented_relative_to_receiver
+
+Style/SymbolArray:
+  EnforcedStyle: brackets

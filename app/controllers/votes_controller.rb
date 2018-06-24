@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
-  before_action :authenticate_user!, only: %i[create destroy]
-  before_action :set_voteable, only: %i[create destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :set_voteable, only: [:create, :destroy]
 
   def create
     @voteable.karma += 1

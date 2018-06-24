@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
-  before_action :user_consistency_check, only: %i[edit update destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit,
+                                            :update, :destroy]
+  before_action :user_consistency_check, only: [:edit, :update, :destroy]
 
   def index
     page = params[:page] || 1
