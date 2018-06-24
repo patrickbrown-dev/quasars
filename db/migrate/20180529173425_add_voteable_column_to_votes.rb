@@ -5,7 +5,7 @@ class AddVoteableColumnToVotes < ActiveRecord::Migration[5.1]
     add_column :votes, :voteable_id, :int
     add_column :votes, :voteable_type, :string
 
-    add_index :votes, [:voteable_type, :voteable_id]
+    add_index :votes, %i[voteable_type voteable_id]
 
     remove_column :votes, :article_id
   end
