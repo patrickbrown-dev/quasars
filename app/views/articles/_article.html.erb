@@ -35,7 +35,9 @@
   <td></td>
   <td>
     <% unless article.description.empty? %>
-    <%= CommonMarker.render_html( article.description, :DEFAULT).html_safe %>
+    <div class="mathjax">
+      <%= CommonMarker.render_html( article.description, :DEFAULT).html_safe %>
+    </div>
     <% end %>
   </td>
 </tr>
