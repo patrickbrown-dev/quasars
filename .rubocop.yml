@@ -27,3 +27,6 @@ Layout/MultilineMethodCallIndentation:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Metrics/BlockLength:
+  Enabled: false
