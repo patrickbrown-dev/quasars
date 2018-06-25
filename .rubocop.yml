@@ -30,3 +30,6 @@ Style/SymbolArray:
 
 Metrics/BlockLength:
   Enabled: false
+
+Style/WordArray:
+  EnforcedStyle: brackets
