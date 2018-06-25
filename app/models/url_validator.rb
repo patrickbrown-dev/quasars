@@ -10,7 +10,7 @@ class UrlValidator < ActiveModel::EachValidator
 
   def url?(value)
     uri = URI.parse(value)
-    %w[http https].include?(uri.scheme)
+    ['http', 'https'].include?(uri.scheme)
   rescue URI::BadURIError
     false
   rescue URI::InvalidURIError
