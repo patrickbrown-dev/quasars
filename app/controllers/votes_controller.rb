@@ -7,10 +7,13 @@ class VotesController < ApplicationController
     @vote = Vote.new(voteable: @voteable)
     @vote.user = current_user
 
-    @vote.transaction do
-      @vote.save!
-      @voteable.save!
+    unless Vote.exists?(user: current_user, voteable: @voteable)
+      @vote.transaction do
+        @vote.save!
+        @voteable.save!
+      end
     end
+
     render plain: 'ok'
   end
 
@@ -18,21 +21,23 @@ class VotesController < ApplicationController
     @voteable.karma -= 1
     @vote = Vote.where(voteable: @voteable, user_id: current_user.id).first
 
-    @vote.transaction do
-      @vote.destroy!
-      @voteable.save!
+    if @vote.present?
+      @vote.transaction do
+        @vote.destroy!
+        @voteable.save!
+      end
     end
+
     render plain: 'ok'
   end
 
   private
 
   def set_voteable
-    @voteable = if vote_params[:voteable_type] == 'Article'
-                  Article.find(vote_params[:voteable_id])
-                else
-                  Comment.find(vote_params[:voteable_id])
-                end
+    return unless vote_params[:voteable_type].in?(['Article', 'Comment'])
+
+    klass = vote_params[:voteable_type].constantize
+    @voteable = klass.find(vote_params[:voteable_id])
   end
 
   def vote_params
