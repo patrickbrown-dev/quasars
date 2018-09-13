@@ -15,5 +15,7 @@ supply a branch instead of a tag to deploy a branch.
 ## Rollbacks
 
 In the case of a bad deploy, issue the `cap green deploy:rollback`
-command. For more information:
-https://capistranorb.com/documentation/getting-started/rollbacks/
+command. For more information, refer to the capistrano
+[rollback documentation][1]
+
+[1]: https://capistranorb.com/documentation/getting-started/rollbacks/
