@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="258 36 461 642" width="461" height="642">
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="12" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="24" panose-1="2 0 8 3 0 0 0 9 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="975.0061" descent="-216.99524" font-weight="700">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue-Bold"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.8.2 
+    <dc:date>2018-09-14 01:09:27 +0000</dc:date>
+  </metadata>
+  <g id="Canvas_1" fill-opacity="1" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none">
+    <title>Canvas 1</title>
+    <g id="Canvas_1: Layer 2">
+      <title>Layer 2</title>
+      <g id="Graphic_78">
+        <title>Rectangle : Base03</title>
+        <rect x="258.75" y="181" width="459.5" height="496" fill="white"/>
+        <rect x="258.75" y="181" width="459.5" height="496" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(263.75 186)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="0" y="11">DigitalOcean</tspan>
+        </text>
+      </g>
+      <g id="Graphic_79">
+        <title>Rectangle : Base02</title>
+        <rect x="291.0625" y="417" width="394.875" height="241.5" fill="white"/>
+        <rect x="291.0625" y="417" width="394.875" height="241.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(296.0625 422)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="0" y="11">Private Network</tspan>
+        </text>
+      </g>
+    </g>
+    <g id="Canvas_1: Layer 1">
+      <title>Layer 1</title>
+      <g id="Graphic_54">
+        <title>Rectangle : Base2 background highlights</title>
+        <path d="M 450.4281 133.05316 C 433.78125 129.75 440.4196 101.94278 466.97506 106.6875 C 469.4388 97.43852 500.31925 98.93973 500.11737 106.6875 C 519.48034 96.778 544.22506 116.53734 527.62764 126.44684 C 547.5437 131.25122 527.3763 157.13656 511.03125 152.8125 C 509.72315 160.01969 480.5031 162.5418 477.9384 152.8125 C 461.39246 163.20292 426.8916 147.22707 450.4281 133.05316 Z" fill="white"/>
+        <path d="M 450.4281 133.05316 C 433.78125 129.75 440.4196 101.94278 466.97506 106.6875 C 469.4388 97.43852 500.31925 98.93973 500.11737 106.6875 C 519.48034 96.778 544.22506 116.53734 527.62764 126.44684 C 547.5437 131.25122 527.3763 157.13656 511.03125 152.8125 C 509.72315 160.01969 480.5031 162.5418 477.9384 152.8125 C 461.39246 163.20292 426.8916 147.22707 450.4281 133.05316 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".75"/>
+        <text transform="translate(457.45 122.582)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="10.494" y="11">Internet</tspan>
+        </text>
+      </g>
+      <g id="Graphic_55">
+        <title>Rectangle : Base2 background highlights</title>
+        <path d="M 459.0867 201.61285 L 517.9133 201.61285 C 523.43614 201.61285 527.9133 206.09 527.9133 211.61285 L 527.9133 234.61285 C 527.9133 240.1357 523.43614 244.61285 517.9133 244.61285 L 459.0867 244.61285 C 453.56386 244.61285 449.0867 240.1357 449.0867 234.61285 L 449.0867 211.61285 C 449.0867 206.09 453.56386 201.61285 459.0867 201.61285 Z" fill="white"/>
+        <path d="M 459.0867 201.61285 L 517.9133 201.61285 C 523.43614 201.61285 527.9133 206.09 527.9133 211.61285 L 527.9133 234.61285 C 527.9133 240.1357 523.43614 244.61285 517.9133 244.61285 L 459.0867 244.61285 C 453.56386 244.61285 449.0867 240.1357 449.0867 234.61285 L 449.0867 211.61285 C 449.0867 206.09 453.56386 201.61285 459.0867 201.61285 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(454.0867 215.94485)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="21.969295" y="11">DNS</tspan>
+        </text>
+      </g>
+      <g id="Line_56">
+        <title>Arrow</title>
+        <line x1="488.5" y1="159.28146" x2="488.5" y2="191.21285" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_59">
+        <title>Rectangle : Base2 background highlights</title>
+        <path d="M 488.5 331.25 L 527.9133 368.09375 L 488.5 404.9375 L 449.0867 368.09375 Z" fill="white"/>
+        <path d="M 488.5 331.25 L 527.9133 368.09375 L 488.5 404.9375 L 449.0867 368.09375 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(464.7283 353.02088)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="3.115971" y="11">Floating </tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="19.117971" y="25.336">IP</tspan>
+        </text>
+      </g>
+      <g id="Graphic_53">
+        <text transform="translate(359 41.651917)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="24" font-weight="700" fill="black" x="0" y="23">Quasars Infrastructure</tspan>
+        </text>
+      </g>
+      <g id="Line_60">
+        <title>Arrow</title>
+        <line x1="488.5" y1="245.11285" x2="488.5" y2="320.85" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_68">
+        <title>Tag : Highlight</title>
+        <path d="M 464.6734 285.7257 L 512.3266 285.7257 C 517.84944 285.7257 522.3266 290.20286 522.3266 295.7257 L 522.3266 297.5243 C 522.3266 303.04714 517.84944 307.5243 512.3266 307.5243 L 464.6734 307.5243 C 459.15056 307.5243 454.6734 303.04714 454.6734 297.5243 L 454.6734 295.7257 C 454.6734 290.20286 459.15056 285.7257 464.6734 285.7257 Z" fill="white"/>
+        <path d="M 464.6734 285.7257 L 512.3266 285.7257 C 517.84944 285.7257 522.3266 290.20286 522.3266 295.7257 L 522.3266 297.5243 C 522.3266 303.04714 517.84944 307.5243 512.3266 307.5243 L 464.6734 307.5243 C 459.15056 307.5243 454.6734 303.04714 454.6734 297.5243 L 454.6734 295.7257 C 454.6734 290.20286 459.15056 285.7257 464.6734 285.7257 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(464.6734 289.457)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x=".8225897" y="11">quasa.rs</tspan>
+        </text>
+      </g>
+      <g id="Graphic_81">
+        <title>Rectangle : Green</title>
+        <path d="M 364 462 L 447 462 C 452.52285 462 457 466.47715 457 472 L 457 513.5 C 457 519.02285 452.52285 523.5 447 523.5 L 364 523.5 C 358.47715 523.5 354 519.02285 354 513.5 L 354 472 C 354 466.47715 358.47715 462 364 462 Z" fill="#68bc36"/>
+        <path d="M 364 462 L 447 462 C 452.52285 462 457 466.47715 457 472 L 457 513.5 C 457 519.02285 452.52285 523.5 447 523.5 L 364 523.5 C 358.47715 523.5 354 519.02285 354 513.5 L 354 472 C 354 466.47715 358.47715 462 364 462 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(359 478.414)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="10.158" y="11">quasars-app-</tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="31.386" y="25.336">green</tspan>
+        </text>
+      </g>
+      <g id="Graphic_82">
+        <title>Rectangle : Blue</title>
+        <path d="M 530 462 L 613 462 C 618.52285 462 623 466.47715 623 472 L 623 513.5 C 623 519.02285 618.52285 523.5 613 523.5 L 530 523.5 C 524.47715 523.5 520 519.02285 520 513.5 L 520 472 C 520 466.47715 524.47715 462 530 462 Z" fill="#3a8eed"/>
+        <path d="M 530 462 L 613 462 C 618.52285 462 623 466.47715 623 472 L 623 513.5 C 623 519.02285 618.52285 523.5 613 523.5 L 530 523.5 C 524.47715 523.5 520 519.02285 520 513.5 L 520 472 C 520 466.47715 524.47715 462 530 462 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(525 478.414)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="10.158" y="11">quasars-app-</tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="35.052" y="25.336">blue</tspan>
+        </text>
+      </g>
+      <g id="Graphic_71">
+        <title>Rectangle : Base2 background highlights</title>
+        <path d="M 454.6734 635.05 L 454.6734 571.45 C 454.6734 567.0616 469.8277 563.5 488.5 563.5 C 507.1723 563.5 522.3266 567.0616 522.3266 571.45 L 522.3266 635.05 C 522.3266 639.4384 507.1723 643 488.5 643 C 469.8277 643 454.6734 639.4384 454.6734 635.05" fill="white"/>
+        <path d="M 454.6734 635.05 L 454.6734 571.45 C 454.6734 567.0616 469.8277 563.5 488.5 563.5 C 507.1723 563.5 522.3266 567.0616 522.3266 571.45 L 522.3266 635.05 C 522.3266 639.4384 507.1723 643 488.5 643 C 469.8277 643 454.6734 639.4384 454.6734 635.05 M 454.6734 571.45 C 454.6734 575.8384 469.8277 579.4 488.5 579.4 C 507.1723 579.4 522.3266 575.8384 522.3266 571.45" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(459.6734 592.889)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="5.15659" y="11">quasars-</tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="21.71059" y="25.336">db</tspan>
+        </text>
+      </g>
+      <g id="Line_85">
+        <title>Curved arrow</title>
+        <path d="M 457.6796 244.51462 C 429.1553 266.74313 389.0343 304.86197 374.5 352.07874 C 362.44084 391.2546 370.90385 427.246 382.0114 453.01564" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_86">
+        <title>Curved Arrow</title>
+        <path d="M 520.10885 244.37107 C 549.52046 266.5788 590.93435 304.76017 605.5 352.07874 C 617.57634 391.31043 608.2807 427.34857 596.38006 453.12573" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_87">
+        <title>Arrow</title>
+        <line x1="473.10247" y1="391.21904" x2="431.7382" y2="453.34334" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_88">
+        <title>Arrow</title>
+        <line x1="428.89757" y1="523.8998" x2="454.8644" y2="558.4701" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_89">
+        <title>Arrow</title>
+        <line x1="548.1024" y1="523.8998" x2="522.1356" y2="558.4701" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_69">
+        <title>Tag : Green</title>
+        <path d="M 328.42126 352.07874 L 411.57874 352.07874 C 417.0581 352.07874 421.5 356.52064 421.5 362 L 421.5 362 C 421.5 367.47936 417.0581 371.92126 411.57874 371.92126 L 328.42126 371.92126 C 322.9419 371.92126 318.5 367.47936 318.5 362 L 318.5 362 C 318.5 356.52064 322.9419 352.07874 328.42126 352.07874 Z" fill="#68bc36"/>
+        <path d="M 328.42126 352.07874 L 411.57874 352.07874 C 417.0581 352.07874 421.5 356.52064 421.5 362 L 421.5 362 C 421.5 367.47936 417.0581 371.92126 411.57874 371.92126 L 328.42126 371.92126 C 322.9419 371.92126 318.5 367.47936 318.5 362 L 318.5 362 C 318.5 356.52064 322.9419 352.07874 328.42126 352.07874 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(328.5 354.832)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x="1.714" y="11">green.quasa.rs</tspan>
+        </text>
+      </g>
+      <g id="Graphic_70">
+        <title>Tag : Blue</title>
+        <path d="M 565.42126 352.07874 L 639.57874 352.07874 C 645.0581 352.07874 649.5 356.52064 649.5 362 L 649.5 362 C 649.5 367.47936 645.0581 371.92126 639.57874 371.92126 L 565.42126 371.92126 C 559.9419 371.92126 555.5 367.47936 555.5 362 L 555.5 362 C 555.5 356.52064 559.9419 352.07874 565.42126 352.07874 Z" fill="#3a8eed"/>
+        <path d="M 565.42126 352.07874 L 639.57874 352.07874 C 645.0581 352.07874 649.5 356.52064 649.5 362 L 649.5 362 C 649.5 367.47936 645.0581 371.92126 639.57874 371.92126 L 565.42126 371.92126 C 559.9419 371.92126 555.5 367.47936 555.5 362 L 555.5 362 C 555.5 356.52064 559.9419 352.07874 565.42126 352.07874 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(565.5 354.832)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" x=".88" y="11">blue.quasa.rs</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
