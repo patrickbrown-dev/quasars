@@ -7,7 +7,6 @@ RSpec.describe HealthcheckController, type: :controller do
         get :index
 
         expect(response.code).to eq('200')
-        expect(response.body).to include('healthy')
       end
     end
 
@@ -22,7 +21,6 @@ RSpec.describe HealthcheckController, type: :controller do
         get :index
 
         expect(response.code).to eq('500')
-        expect(response.body).to include('unhealthy')
       end
     end
   end

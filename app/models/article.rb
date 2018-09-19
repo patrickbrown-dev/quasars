@@ -37,6 +37,7 @@ class Article < ApplicationRecord
 
   def url_and_or_description
     return unless url.empty? && description.empty?
+
     errors.add(:base, 'Url and Description cannot both be empty')
   end
 end
