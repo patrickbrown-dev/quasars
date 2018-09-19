@@ -30,7 +30,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry'
   gem 'rspec-rails'
-  gem 'rubocop', '= 0.57.2', require: false
+  gem 'rubocop', '~> 0.59.1', require: false
+  gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver'
 end
 
