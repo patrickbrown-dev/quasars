@@ -1,4 +1,4 @@
-lock '~> 3.10.2'
+lock '~> 3.11.0'
 
 set :application, 'quasars'
 set :repo_url, 'https://github.com/kineticdial/quasars.git'
