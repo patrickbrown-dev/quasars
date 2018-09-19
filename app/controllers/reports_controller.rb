@@ -35,6 +35,7 @@ class ReportsController < ApplicationController
 
   def moderators_only!
     return if current_user&.moderator
+
     raise ActionController::RoutingError, 'Not Found'
   end
 

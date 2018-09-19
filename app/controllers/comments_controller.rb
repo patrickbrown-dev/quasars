@@ -58,6 +58,7 @@ class CommentsController < ApplicationController
 
   def user_consistency_check
     return if current_user.moderator || current_user == @comment.user
+
     flash.alert = "You're not authorized to perform that action."
     redirect_to article_path(@comment.article.uid)
   end
