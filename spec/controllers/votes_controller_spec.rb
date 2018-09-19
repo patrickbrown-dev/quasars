@@ -20,7 +20,7 @@ RSpec.describe VotesController, type: :controller do
       end
     end
 
-    context 'while logged in' do
+    context 'when logged in' do
       before { sign_in user }
 
       it 'increments karma' do
@@ -33,11 +33,9 @@ RSpec.describe VotesController, type: :controller do
       it 'creates a vote record' do
         post :create, params: params
 
-        vote = Vote.find_by(
-          user: user,
-          voteable_id: voteable.id,
-          voteable_type: voteable.class.to_s
-        )
+        vote = Vote.find_by(user: user,
+                            voteable_id: voteable.id,
+                            voteable_type: voteable.class.to_s)
 
         expect(vote).not_to be_nil
       end
@@ -53,9 +51,11 @@ RSpec.describe VotesController, type: :controller do
   end
 
   describe '#delete' do
+    before { vote }
+
     let(:voteable) { FactoryBot.create(:article) }
     let(:user) { FactoryBot.create(:user) }
-    let!(:vote) { FactoryBot.create(:vote, user: user, voteable: voteable) }
+    let(:vote) { FactoryBot.create(:vote, user: user, voteable: voteable) }
     let(:params) do
       {
         voteable_id: voteable.id,
@@ -72,7 +72,7 @@ RSpec.describe VotesController, type: :controller do
       end
     end
 
-    context 'while logged in' do
+    context 'when logged in' do
       before { sign_in user }
 
       it 'decrements karma' do
@@ -85,11 +85,9 @@ RSpec.describe VotesController, type: :controller do
       it 'deletes the vote record' do
         delete :destroy, params: params
 
-        vote = Vote.find_by(
-          user: user,
-          voteable_id: voteable.id,
-          voteable_type: voteable.class.to_s
-        )
+        vote = Vote.find_by(user: user,
+                            voteable_id: voteable.id,
+                            voteable_type: voteable.class.to_s)
 
         expect(vote).to be_nil
       end
