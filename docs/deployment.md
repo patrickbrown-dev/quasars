@@ -3,8 +3,8 @@ Deployment
 
 ## Releases
 
-1. Tag master for release (e.g. `git tag 0.0.1 -m 0.0.1`)
-2. Push tag to origin (e.g. `git push 0.0.1`)
+1. Create a new release at https://github.com/kineticdial/quasars/releases/new (make sure to bump tag version)
+2. Do a `git pull` in your local codebase on `master`.
 3. Initiate a capistrano deploy (e.g. `cap green deploy`)
 4. Supply tag when prompted (it should default to latest tag).
 5. Monitor release and post-deploy.
