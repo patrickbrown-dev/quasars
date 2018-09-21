@@ -16,7 +16,10 @@ class CommentsController < ApplicationController
         notice: 'Comment was successfully created.'
       )
     else
-      render :new
+      redirect_to(
+        article_path(@comment.article.uid),
+        alert: 'Comments cannot be blank'
+      )
     end
   end
 
