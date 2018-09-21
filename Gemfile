@@ -29,6 +29,7 @@ group :development, :test do
   gem 'codecov', require: false
   gem 'factory_bot_rails'
   gem 'pry'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop', '~> 0.59.1', require: false
   gem 'rubocop-rspec', require: false
