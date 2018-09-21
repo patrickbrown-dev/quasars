@@ -4,5 +4,9 @@ FactoryBot.define do
     password { 'MyPassword' }
     sequence(:username) { |e| "Username#{e}" }
     moderator { false }
+
+    trait :moderator do
+      moderator { true }
+    end
   end
 end
