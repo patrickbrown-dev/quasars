@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
+  before_action :moderators_only!, only: [:index, :show, :resolve]
   before_action :authenticate_user!, only: [:new, :create, :index,
                                             :show, :resolve]
-  before_action :moderators_only!, only: [:index, :show, :resolve]
   before_action :set_report, only: [:show, :resolve]
 
   def index
