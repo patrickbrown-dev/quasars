@@ -67,7 +67,6 @@ class ArticlesController < ApplicationController
   def user_consistency_check
     return if current_user.moderator || current_user == @article.user
 
-    flash.alert = "You're not authorized to perform that action."
-    redirect_to show_article(@article.uid)
+    head :forbidden
   end
 end
