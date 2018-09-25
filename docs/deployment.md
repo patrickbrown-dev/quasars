@@ -1,7 +1,6 @@
-Deployment
-==========
+## Deployment
 
-## Releases
+### Releases
 
 1. Create a [new release][2] and bump tag version (e.g. `0.0.1` to `0.0.2`).
 2. Do a `git pull` in your local codebase on `master`.
@@ -12,7 +11,7 @@ Deployment
 In these examples `green` is the stage and `0.0.1` is the tag. You may
 supply a branch instead of a tag to deploy a branch.
 
-## Rollbacks
+### Rollbacks
 
 In the case of a bad deploy, issue the `cap green deploy:rollback`
 command. For more information, refer to the capistrano
