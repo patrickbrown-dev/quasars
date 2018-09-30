@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if @article %>
+    <title><%= @article.title %> | Quasars</title>
+    <% else %>
     <title>Quasars</title>
+    <% end %>
+
+    <%= render "article_meta" if @article %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -18,7 +24,7 @@
       <table style="width:770px;">
         <tr>
           <td style="width:30px;text-align:center;">
-            <%= link_to image_tag('logo2.svg', size: '30x30'), '/' %>
+            <%= link_to image_tag('quasars_logo.svg', size: '20x20'), '/' %>
           </td>
           <td style="width:601px;">
             <strong><%= link_to 'Quasars', '/' %></strong>
