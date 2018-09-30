@@ -1,5 +1,9 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@kineticdial">
 <meta name="twitter:title" content="<%= @article.title %>">
-<meta name="twitter:description" content="<%= @article.description %>">
+<% if @article.description.present? %>
+<meta name="twitter:description" content="<%= truncate(@article.description, length: 197) %>">
+<% else %>
+<meta name="twitter:description" content="<%= @article.comments.count %> comments.">
+<% end %>
 <meta name="twitter:image" content="<%= asset_url('quasars_logo_512.png') %>">
