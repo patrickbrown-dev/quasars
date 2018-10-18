@@ -13,7 +13,7 @@ class Article < ApplicationRecord
 
   validate :url_and_or_description
 
-  before_create :set_uid
+  before_create :set_uid, :set_slug
 
   def host
     uri = URI.parse(url)
@@ -26,13 +26,16 @@ class Article < ApplicationRecord
 
   private
 
+  def set_slug
+    self.slug = title.gsub(/[^0-9a-z ]/i, '')
+                  .gsub(/\W/, '_')
+                  .downcase
+  end
+
   def set_uid
     hex = SecureRandom.hex(3)
-    title_clean = title.gsub(/[^0-9a-z ]/i, '')
-                    .gsub(/\W/, '_')
-                    .downcase
 
-    self.uid = "#{hex}-#{title_clean}"
+    self.uid = hex.to_s
   end
 
   def url_and_or_description
