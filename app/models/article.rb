@@ -24,10 +24,6 @@ class Article < ApplicationRecord
     url.empty?
   end
 
-  def uid_and_slug
-    "#{uid}/#{slug}"
-  end
-
   private
 
   def set_slug
