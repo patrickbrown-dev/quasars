@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'articles#index'
 
   resources :articles, path: :a, param: :uid
+  get '/a/:uid/(:slug)' => 'articles#show'
   resources :comments, only: [:create, :edit, :update, :destroy]
   resources :reports, only: [:index, :create, :show, :new] do
     member do
