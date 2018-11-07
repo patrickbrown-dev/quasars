@@ -1,0 +1,5 @@
+<%= @comment.user.username %> replied to your post on quasars:
+
+<%= @comment.body %>
+
+Continue the discussion: <%= article_url(@comment.article.uid) %>
