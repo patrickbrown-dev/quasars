@@ -6,11 +6,12 @@ class CommentsController < ApplicationController
   def edit; end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.karma = 1
+    comment = Comment.new(comment_params)
+    create_comment_service = CreateCommentService.new
+    comment_optional = create_comment_service.run(comment)
+    @comment = comment_optional.obj
 
-    if @comment.save
-      Vote.create!(user: current_user, voteable: @comment)
+    if comment_optional.success?
       redirect_to(
         article_path(@comment.article.uid),
         notice: 'Comment was successfully created.'
