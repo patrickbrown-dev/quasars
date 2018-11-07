@@ -7,18 +7,19 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.karma = 1
+    create_comment_service = CreateCommentService.new
+    comment_optional = create_comment_service.run(@comment)
 
-    if @comment.save
-      Vote.create!(user: current_user, voteable: @comment)
-      redirect_to(
-        article_path(@comment.article.uid),
-        notice: 'Comment was successfully created.'
-      )
-    else
+    if comment_optional.none?
       redirect_to(
         article_path(@comment.article.uid),
         alert: 'Comments cannot be blank'
+      )
+    else
+      @comment = comment_optional.get
+      redirect_to(
+        article_path(@comment.article.uid),
+        notice: 'Comment was successfully created.'
       )
     end
   end

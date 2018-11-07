@@ -9,5 +9,6 @@ module App
     config.generators.javascript_engine = :js
     config.generators.test_framework = :rspec
     config.load_defaults 5.1
+    config.autoload_paths << "#{Rails.root}/lib"
   end
 end
