@@ -1,34 +1,29 @@
 class Optional
-  attr_reader :obj
-
-  def self.failure(obj, msg)
-    Failure.new(obj, msg)
+  def self.none
+    None.new
   end
 
-  def self.success(obj)
-    Success.new(obj)
+  def self.some(obj)
+    Some.new(obj)
   end
 end
 
-class Success < Optional
+class Some < Optional
   def initialize(obj)
     @obj = obj
   end
 
-  def success?
-    true
+  def get
+    @obj
+  end
+
+  def none?
+    false
   end
 end
 
-class Failure < Optional
-  attr_reader :msg
-
-  def initialize(obj, msg)
-    @obj = obj
-    @msg = msg
-  end
-
-  def success?
-    false
+class None < Optional
+  def none?
+    true
   end
 end

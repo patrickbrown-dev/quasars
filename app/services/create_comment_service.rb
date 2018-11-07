@@ -13,9 +13,9 @@ class CreateCommentService < ApplicationService
           .comment_email.deliver_later
       end
 
-      Optional.success(comment)
+      Optional.some(comment)
     else
-      Optional.failure(comment, comment.errors.join(', '))
+      Optional.none
     end
   end
 end
