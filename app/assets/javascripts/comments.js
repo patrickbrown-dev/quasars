@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       var commentId = this.dataset.value;
       var hiddenForm = document.getElementById("hidden-form-" + commentId);
 
-      console.log(this);
       hiddenForm.classList.remove("hidden-form");
     }
   }
