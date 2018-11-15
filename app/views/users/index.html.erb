@@ -1,7 +1,7 @@
 <table>
   <% @users.each do |user| %>
   <tr>
-    <td><%= link_to user.username, user_path(user.username) %></td>
+    <td><%= link_to user.username, user_path(user.username) %> (<%= user.karma %>)</td>
   </tr>
   <% end %>
 </table>
