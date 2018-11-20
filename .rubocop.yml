@@ -35,6 +35,3 @@ Metrics/BlockLength:
 
 Style/WordArray:
   EnforcedStyle: brackets
-
-Style/ClassAndModuleChildren:
-  EnforcedStyle: compact
