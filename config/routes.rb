@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, path: :u, param: :username, only: [:index, :show]
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   get '/healthcheck' => 'healthcheck#index'
   get '/about' => 'about#index'
