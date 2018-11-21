@@ -3,7 +3,11 @@
 <table>
   <tr>
     <td style="width: 200px"><strong>Status:</strong></td>
+    <% if @user.active_for_authentication? %>
     <td>Active user</td>
+    <% else %>
+    <td>User account deactivated</td>
+    <% end %>
   </tr>
   <tr>
     <td><strong>Priviledges:</strong></td>
