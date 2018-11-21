@@ -25,3 +25,6 @@ comment:
   behavior: default
   require_changes: no
 
+ignore:
+  - 'app/controllers/users'
+  - 'app/controllers/application_controller.rb'
