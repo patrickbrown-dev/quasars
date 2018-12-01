@@ -1,5 +1,5 @@
 <table>
-  <%= render 'article', article: @article, locals: { show_description?: true, show_comments?: false } %>
+  <%= render 'article', article: @article.presenter, locals: { show_description?: true, show_comments?: false } %>
 
   <tr>
     <td></td>

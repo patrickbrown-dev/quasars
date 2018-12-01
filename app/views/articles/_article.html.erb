@@ -15,7 +15,7 @@
     <% end %>
     <% unless article.description.empty? %>☶<% end %>
     <em><small><%= article.host %></small></em><br>
-    <small>Posted by <%= link_to article.user.username, user_path(article.user.username) %> <%= time_ago_in_words(article.created_at) %> ago
+    <small>Posted by <%= link_to_if article.user.active_for_authentication?, article.user.username, user_path(article.user.username) %> <%= article.created_at_in_words %> ago
       <% if locals[:show_comments?] %>
       | <%= link_to "#{article.comments.count} comments", article_path_with_slug(article.uid, article.slug) %>
       <% end %>
