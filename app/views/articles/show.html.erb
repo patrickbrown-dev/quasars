@@ -1,18 +1,12 @@
-<table>
-  <%= render 'article', article: @article, locals: { show_description?: true, show_comments?: false } %>
+<%= render 'article', article: @article, locals: { show_description?: true, show_comments?: false } %>
 
-  <tr>
-    <td></td>
-    <td>
-      <% if user_signed_in? %>
-      <%= render '/comments/form', comment: @comment %>
-      <% else %>
-      <p><%= link_to 'Sign In', new_user_session_path %> to comment.</p>
-      <% end %>
-    </td>
-  </tr>
 
-  <% @article.comments.where(parent_comment_id: nil).hot.each do |comment| %>
-  <%= render '/comments/comment', comment: comment %>
-  <% end %>
-</table>
+<% if user_signed_in? %>
+<%= render '/comments/form', comment: @comment %>
+<% else %>
+<p><%= link_to 'Sign In', new_user_session_path %> to comment.</p>
+<% end %>
+
+<% @article.comments.where(parent_comment_id: nil).hot.each do |comment| %>
+<%= render '/comments/comment', comment: comment %>
+<% end %>

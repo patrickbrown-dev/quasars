@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       e.preventDefault();
       var voteableId = this.dataset.value;
       var voteableType = this.dataset.type;
+      var voteableKarma = this.dataset.karma;
       var xhr = new XMLHttpRequest();
       var current = this;
 
@@ -18,8 +19,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
           if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.status == 200 && xhr.response == 'ok') {
               current.classList.remove("upvoted");
+              current.classList.remove("btn-danger");
+              current.classList.add("btn-outline-danger");
               var voteCount = document.getElementById("votes-" + voteableId + "-" + voteableType);
-              voteCount.innerHTML = Number(voteCount.innerHTML) - 1;
+              current.dataset.karma = Number(voteableKarma) - 1;
+              voteCount.innerHTML = "♡ " + current.dataset.karma;
             }
           }
         };
@@ -33,8 +37,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
           if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.status == 200 && xhr.response == 'ok') {
               current.classList.add("upvoted");
+              current.classList.remove("btn-outline-danger");
+              current.classList.add("btn-danger");
               var voteCount = document.getElementById("votes-" + voteableId + "-" + voteableType);
-              voteCount.innerHTML = Number(voteCount.innerHTML) + 1;
+              current.dataset.karma = Number(voteableKarma) + 1;
+              voteCount.innerHTML = "♡ " + current.dataset.karma;
             }
           }
         };

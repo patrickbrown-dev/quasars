@@ -1,44 +1,56 @@
-<tr>
-  <td style="width:30px;text-align:center;">
-    <% if article.upvoted_by_user?(current_user) %>
-    <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => article.id, "data-type" => "Article" %><br>
-    <% else %>
-    <%= link_to '▲', '#', class: "upvoter", "data-value" => article.id, "data-type" => "Article" %><br>
-    <% end %>
-    <small id="votes-<%= article.id %>-<%= 'Article' %>"><%= article.karma %></small>
-  </td>
-  <td>
-    <% if article.description_only? %>
-    <strong><%= link_to article.title, article_path_with_slug(article.uid, article.slug) %></strong>
-    <% else %>
-    <strong><%= link_to article.title, article.url %></strong>
-    <% end %>
-    <% unless article.description.empty? %>☶<% end %>
-    <em><small><%= article.host %></small></em><br>
-    <small>Posted by <%= link_to article.user.username, user_path(article.user.username) %> <%= time_ago_in_words(article.created_at) %> ago
-      <% if locals[:show_comments?] %>
-      | <%= link_to "#{article.comments.count} comments", article_path_with_slug(article.uid, article.slug) %>
-      <% end %>
-      <% if user_signed_in? %>
-      | <%= link_to 'Report', new_report_path(report: {reportable_id: article.id, reportable_type: article.class.to_s}) %>
-      <% end %>
-      <% if user_signed_in? && (current_user.id == article.user.id || current_user.moderator) %>
-      | <%= link_to 'Edit', edit_article_path(article.uid) %>
-      | <%= link_to 'Destroy', article_path(article.uid), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </small>
-  </td>
-</tr>
-
-<% if locals[:show_description?] %>
-<tr>
-  <td></td>
-  <td>
-    <% unless article.description.empty? %>
-    <div class="mathjax">
-      <%= CommonMarker.render_html( article.description, :DEFAULT).html_safe %>
+<div class="card mb-3">
+  <div class="card-header text-muted clearfix">
+    <div class="float-left">
+      <%= link_to article.user.username, user_path(article.user.username) %> <%= time_ago_in_words(article.created_at) %> ago
     </div>
-    <% end %>
-  </td>
-</tr>
-<% end %>
+    <div class="float-right">
+      <span class="badge badge-secondary"><%= article.host || "self" %></span>
+    </div>
+  </div>
+  <div class="card-body">
+    <h4 class="card-link">
+      <% if article.description_only? %>
+      <%= link_to article.title, article_path_with_slug(article.uid, article.slug) %>
+      <% else %>
+      <%= link_to article.title, article.url %>
+      <% end %>
+    </h4>
+
+    <div class="card-text">
+
+      <% unless article.description.empty? %>
+      <div class="mathjax">
+        <% if locals[:show_description?] %>
+        <%= CommonMarker.render_html(article.description, :DEFAULT).html_safe %>
+        <% else %>
+        <%= truncate(strip_tags(CommonMarker.render_html(article.description, :DEFAULT)), length: 80) %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted clearfix">
+    <div class="float-left">
+      <% if article.upvoted_by_user?(current_user) %>
+      <%= link_to "♡ #{article.karma}", '#', class: "btn btn-danger btn-sm upvoter upvoted", "data-value" => article.id, "data-type" => "Article", "data-karma" => article.karma, id: "votes-#{article.id}-Article" %>
+      <% else %>
+      <%= link_to "♡ #{article.karma}", '#', class: "btn btn-outline-danger btn-sm upvoter", "data-value" => article.id, "data-type" => "Article", "data-karma" => article.karma, id: "votes-#{article.id}-Article" %>
+      <% end %>
+      <% if locals[:show_comments?] %>
+      <%= link_to "#{article.comments.count} comments", article_path_with_slug(article.uid, article.slug), class: "btn btn-outline-secondary btn-sm" %>
+      <% end %>
+    </div>
+
+    <div class="float-right btn-group" role="group">
+      <% if user_signed_in? && (current_user.id == article.user.id || current_user.moderator) %>
+      <%= link_to 'Edit', edit_article_path(article.uid), class: "btn btn-outline-secondary btn-sm" %>
+      <%= link_to 'Delete', article_path(article.uid), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %>
+      <% end %>
+
+      <% if user_signed_in? && (current_user.id != article.user.id) %>
+      <%= link_to 'Report', new_report_path(report: {reportable_id: article.id, reportable_type: article.class.to_s}), class: "btn btn-outline-secondary btn-sm" %>
+      <% end %>
+    </div>
+  </div>
+</div>

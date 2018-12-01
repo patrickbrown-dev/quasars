@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
   def index
     page = params[:page] || 1
-    @articles = Article.hot.page(page).per(20)
+    @articles = Article.hot.page(page).per(12)
   end
 
   def show

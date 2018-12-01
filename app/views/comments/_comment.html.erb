@@ -1,40 +1,54 @@
-<tr>
-  <td style="width:30px;text-align:center;display:block;">
-    <% if comment.upvoted_by_user?(current_user) %>
-    <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => comment.id, "data-type" => "Comment" %><br>
-    <% else %>
-    <%= link_to '▲', '#', class: "upvoter", "data-value" => comment.id, "data-type" => "Comment" %><br>
-    <% end %>
-    <small id="votes-<%= comment.id %>-<%= 'Comment' %>"><%= comment.karma %></small>
-  </td>
-  <td>
-    <small>
-      <strong><%= link_to comment.user.username, user_path(comment.user.username) %></strong>
-      <% if comment.user == @article.user %>[OP]<% end %>
-      posted <%=  time_ago_in_words(comment.created_at) %> ago
-      <% if user_signed_in? %>
-      | <%= link_to 'Report', new_report_path(report: {reportable_id: comment.id, reportable_type: comment.class.to_s}) %>
-      <% end %>
-      <% if user_signed_in? && (current_user == comment.user || current_user.moderator) %>
-      | <%= link_to 'Edit', edit_comment_path(comment) %>
-      | <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </small>
+<div class="media mt-3">
 
-    <%= CommonMarker.render_html( comment.body, :DEFAULT).html_safe %>
+  <%= image_tag('quasars_logo.svg', size: '64x64', class: "mr-3 border rounded bg-light") %>
 
-    <small><a href="#" class="reply" data-value="<%= comment.id %>">Reply</a></small>
+  <div class="media-body">
+    <div class="card">
+
+      <div class="card-header text-muted">
+        <%= link_to comment.user.username, user_path(comment.user.username) %>
+        <% if comment.user == @article.user %><span class="badge badge-secondary">OP</span><% end %>
+        <%=  time_ago_in_words(comment.created_at) %> ago
+      </div>
+
+      <div class="card-body">
+        <%= CommonMarker.render_html( comment.body, :DEFAULT).html_safe %>
+      </div>
+
+      <div class="card-footer text-muted">
+        <div class="clearfix">
+          <div class="float-left">
+            <% if comment.upvoted_by_user?(current_user) %>
+            <%= link_to "♡ #{comment.karma}", '#', class: "btn btn-danger btn-sm upvoter upvoted", "data-value" => comment.id, "data-type" => "Comment", "data-karma" => comment.karma, id: "votes-#{comment.id}-Comment" %>
+            <% else %>
+            <%= link_to "♡ #{comment.karma}", '#', class: "btn btn-outline-danger btn-sm upvoter", "data-value" => comment.id, "data-type" => "Comment", "data-karma" => comment.karma, id: "votes-#{comment.id}-Comment" %>
+            <% end %>
+            <a href="#" class="reply btn btn-outline-secondary btn-sm" data-value="<%= comment.id %>">Reply</a>
+          </div>
+
+          <div class="float-right btn-group" role="group">
+            <% if user_signed_in? && (current_user == comment.user || current_user.moderator) %>
+            <%= link_to 'Edit', edit_comment_path(comment), class: "btn btn-outline-secondary btn-sm" %>
+            <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+
+            <% if user_signed_in? && (current_user != comment.user) %>
+            <%= link_to 'Report', new_report_path(report: {reportable_id: comment.id, reportable_type: comment.class.to_s}), class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <% @comment.parent_comment_id = comment.id %>
-    <div id="hidden-form-<%= comment.id %>" class="hidden-form">
+    <div id="hidden-form-<%= comment.id %>" class="hidden-form mt-3">
       <%= render '/comments/form', comment: @comment %>
     </div>
 
     <% if comment.comments.any? %>
-    <table style="margin-left: 24px;">
-      <% comment.comments.hot.each do |child_comment| %>
-      <%= render '/comments/comment', comment: child_comment %>
-      <% end %>
-    </table>
+    <% comment.comments.hot.each do |child_comment| %>
+    <%= render '/comments/comment', comment: child_comment %>
     <% end %>
-  </td>
-</tr>
+    <% end %>
+  </div>
+</div>

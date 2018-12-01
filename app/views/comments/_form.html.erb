@@ -1,4 +1,4 @@
-<%= form_with(model: comment, local: true) do |form| %>
+<%= form_with(model: comment, local: true, class: "mb-3") do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -15,11 +15,14 @@
   <%= form.hidden_field :user_id, value: comment.user_id %>
   <%= form.hidden_field :parent_comment_id, value: comment.parent_comment_id %>
 
-  <div class="field">
-    <%= form.text_area :body, id: :comment_body %>
+  <div class="field form-group">
+    <%= form.text_area :body, id: :comment_body, class: "form-control" %>
+    <small class="form-text text-muted">
+      You may use both Markdown and LaTeX markup in your post.
+    </small>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Post", class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>

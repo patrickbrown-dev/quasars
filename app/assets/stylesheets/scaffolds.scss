@@ -1,89 +1,95 @@
-nav {
-    margin-top: 16px;
-
-    a, a:hover {
-        text-decoration: none;
-    }
+blockquote {
+    padding-left: 1rem;
+    color: rgb(108, 117, 125);
+    border-left: 4px rgb(108, 117, 125) solid;
 }
 
-body {
-    max-width:770px;
-    margin:0 auto;
-    background-color: #fff;
-    color: #333;
-    font-family: verdana, arial, helvetica, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
-}
+// nav {
+//     margin-top: 16px;
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
+//     a, a:hover {
+//         text-decoration: none;
+//     }
+// }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
+// body {
+//     max-width:770px;
+//     margin:0 auto;
+//     background-color: #fff;
+//     color: #333;
+//     font-family: verdana, arial, helvetica, sans-serif;
+//     font-size: 13px;
+//     line-height: 18px;
+// }
 
-a {
-  color: #000;
-}
+// p, ol, ul, td {
+//   font-family: verdana, arial, helvetica, sans-serif;
+//   font-size: 13px;
+//   line-height: 18px;
+// }
 
-th {
-  padding-bottom: 5px;
-}
+// pre {
+//   background-color: #eee;
+//   padding: 10px;
+//   font-size: 11px;
+// }
 
-td {
-  padding: 10px 0 0 0;
-}
+// a {
+//   color: #000;
+// }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
+// th {
+//   padding-bottom: 5px;
+// }
 
-#notice {
-  color: green;
-}
+// td {
+//   padding: 10px 0 0 0;
+// }
 
-#alert {
-  color: red;
-}
+// div {
+//   &.field, &.actions {
+//     margin-bottom: 10px;
+//   }
+// }
+
+// #notice {
+//   color: green;
+// }
+
+// #alert {
+//   color: red;
+// }
 
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
+// .field_with_errors {
+//   padding: 2px;
+//   background-color: red;
+//   display: table;
+// }
 
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px 7px 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+// #error_explanation {
+//   width: 450px;
+//   border: 2px solid red;
+//   padding: 7px 7px 0;
+//   margin-bottom: 20px;
+//   background-color: #f0f0f0;
 
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px -7px 0;
-    background-color: #c00;
-    color: #fff;
-  }
+//   h2 {
+//     text-align: left;
+//     font-weight: bold;
+//     padding: 5px 5px 5px 15px;
+//     font-size: 12px;
+//     margin: -7px -7px 0;
+//     background-color: #c00;
+//     color: #fff;
+//   }
 
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
+//   ul li {
+//     font-size: 12px;
+//     list-style: square;
+//   }
+// }
 
-label {
-  display: block;
-}
+// label {
+//   display: block;
+// }
