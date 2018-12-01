@@ -1,5 +1,5 @@
 <table>
-  <% @articles.each do |article| %>
+  <% @articles.map { |a| a.presenter }.each do |article| %>
 
   <%= render 'article', article: article, locals: { show_description?: false, show_comments?: true } %>
 
