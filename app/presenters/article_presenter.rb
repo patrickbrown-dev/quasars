@@ -11,6 +11,14 @@ class ArticlePresenter < ApplicationPresenter
            :url,
            to: :model
 
+  def title
+    if @model.is_sticky
+      'Sticky: ' + @model.title
+    else
+      @model.title
+    end
+  end
+
   def user
     @model.user.presenter
   end
@@ -22,5 +30,9 @@ class ArticlePresenter < ApplicationPresenter
 
   def description_only?
     @model.url.empty?
+  end
+
+  def sticky?
+    @model.is_sticky
   end
 end

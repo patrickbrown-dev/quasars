@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181120070850) do
+ActiveRecord::Schema.define(version: 20181228193446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20181120070850) do
     t.integer "karma", default: 0
     t.string "uid"
     t.string "slug"
+    t.boolean "is_sticky", default: false
     t.index ["uid"], name: "index_articles_on_uid"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end

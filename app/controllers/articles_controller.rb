@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
   def index
     page = params[:page] || 1
+    @sticky_articles = Article.where(is_sticky: true)
     @articles = Article.hot.page(page).per(20)
   end
 

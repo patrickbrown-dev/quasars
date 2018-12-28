@@ -1,4 +1,4 @@
-<tr>
+<% if article.sticky? %><tr class="sticky"><% else %><tr><% end %>
   <td style="width:30px;text-align:center;">
     <% if article.upvoted_by_user?(current_user) %>
     <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => article.id, "data-type" => "Article" %><br>
@@ -7,12 +7,14 @@
     <% end %>
     <small id="votes-<%= article.id %>-<%= 'Article' %>"><%= article.karma %></small>
   </td>
+
   <td>
     <% if article.description_only? %>
     <strong><%= link_to article.title, article_path_with_slug(article.uid, article.slug) %></strong>
     <% else %>
     <strong><%= link_to article.title, article.url %></strong>
     <% end %>
+
     <% unless article.description.empty? %>☶<% end %>
     <em><small><%= article.host %></small></em><br>
     <small>Posted by <%= link_to_if article.user.active_for_authentication?, article.user.username, user_path(article.user.username) %> <%= article.created_at_in_words %> ago
