@@ -1,4 +1,4 @@
-<% if article.sticky? %><tr class="sticky"><% else %><tr><% end %>
+<% if article.is_sticky %><tr class="sticky"><% else %><tr><% end %>
   <td style="width:30px;text-align:center;">
     <% if article.upvoted_by_user?(current_user) %>
     <%= link_to '▲', '#', class: "upvoter upvoted", "data-value" => article.id, "data-type" => "Article" %><br>

@@ -9,6 +9,7 @@ class ArticlePresenter < ApplicationPresenter
            :host,
            :comments,
            :url,
+           :is_sticky,
            to: :model
 
   def title
@@ -30,9 +31,5 @@ class ArticlePresenter < ApplicationPresenter
 
   def description_only?
     @model.url.empty?
-  end
-
-  def sticky?
-    @model.is_sticky
   end
 end
