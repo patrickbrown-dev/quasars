@@ -13,49 +13,11 @@ RSpec.describe Article, type: :model do
     expect(article.title).not_to be_nil
   end
 
-  describe '#description_only?' do
-    context 'when there is only a description' do
-      let(:article) do
-        FactoryBot.build(:article,
-                         description: 'description',
-                         url: '')
-      end
+  context 'when an article description and url are empty' do
+    let(:article) { FactoryBot.build(:article, url: '', description: '') }
 
-      it 'returns true' do
-        expect(article).to be_description_only
-      end
-    end
-
-    context 'when there is a description + url' do
-      let(:article) do
-        FactoryBot.build(:article,
-                         description: 'description',
-                         url: 'https://xkcd.com/314')
-      end
-
-      it 'returns true' do
-        expect(article).not_to be_description_only
-      end
-    end
-
-    context 'when there is a no description' do
-      let(:article) do
-        FactoryBot.build(:article,
-                         description: '',
-                         url: 'https://xkcd.com/314')
-      end
-
-      it 'returns true' do
-        expect(article).not_to be_description_only
-      end
-    end
-  end
-
-  describe '#host' do
-    let(:article) { FactoryBot.build(:article, url: 'https://xkcd.com/314') }
-
-    it 'returns the hostname from url' do
-      expect(article.host).to eq('xkcd.com')
+    it 'is invalid' do
+      expect(article).not_to be_valid
     end
   end
 end

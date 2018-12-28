@@ -3,23 +3,15 @@
 <table>
   <tr>
     <td style="width: 200px"><strong>Status:</strong></td>
-    <% if @user.active_for_authentication? %>
-    <td>Active user</td>
-    <% else %>
-    <td>User account deactivated</td>
-    <% end %>
+    <td><%= @user.status %></td>
   </tr>
   <tr>
     <td><strong>Priviledges:</strong></td>
-    <% if @user.moderator %>
-    <td>Moderator</td>
-    <% else %>
-    <td>User</td>
-    <% end %>
+    <td><%= @user.priviledges %></td>
   </tr>
   <tr>
     <td><strong>Joined:</strong></td>
-    <td><%= time_ago_in_words @user.created_at %> ago</td>
+    <td><%= @user.created_at_in_words %> ago</td>
   </tr>
   <tr>
     <td><strong>Stories Submitted:</strong></td>

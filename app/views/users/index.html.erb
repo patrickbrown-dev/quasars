@@ -1,7 +1,7 @@
 <table>
-  <% @users.each do |user| %>
+  <% @users.map { |u| u.presenter }.each do |user| %>
   <tr>
-    <td><%= link_to user.username, user_path(user.username) %> (<%= user.karma %>)</td>
+    <td><%= link_to_if user.active_for_authentication?, user.username, user_path(user.username) %> (<%= user.karma %>)</td>
   </tr>
   <% end %>
 </table>

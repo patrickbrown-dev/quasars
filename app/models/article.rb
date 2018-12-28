@@ -15,13 +15,8 @@ class Article < ApplicationRecord
 
   before_create :set_uid, :set_slug
 
-  def host
-    uri = URI.parse(url)
-    uri.host
-  end
-
-  def description_only?
-    url.empty?
+  def presenter
+    ArticlePresenter.new(self)
   end
 
   private
