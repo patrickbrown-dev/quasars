@@ -9,7 +9,16 @@ class ArticlePresenter < ApplicationPresenter
            :host,
            :comments,
            :url,
+           :is_sticky,
            to: :model
+
+  def title
+    if @model.is_sticky
+      'Sticky: ' + @model.title
+    else
+      @model.title
+    end
+  end
 
   def user
     @model.user.presenter

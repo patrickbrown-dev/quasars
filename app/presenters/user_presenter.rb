@@ -1,5 +1,10 @@
 class UserPresenter < ApplicationPresenter
-  delegate :active_for_authentication?, :articles, :comments, :karma, to: :model
+  delegate :active_for_authentication?,
+           :articles,
+           :comments,
+           :karma,
+           :id,
+           to: :model
 
   def username
     return 'deleted' unless active_for_authentication?

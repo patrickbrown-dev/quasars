@@ -1,6 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe ArticlePresenter do
+  describe '#title' do
+    context 'when article is sticky' do
+      let(:article) { FactoryBot.build(:article, is_sticky: true).presenter }
+
+      it 'includes "Sticky" in the beginning of title' do
+        expect(article.title).to match(/Sticky: /)
+      end
+    end
+
+    context 'when article is not sticky' do
+      let(:article) { FactoryBot.build(:article, is_sticky: false).presenter }
+
+      it 'includes "Sticky" in the beginning of title' do
+        expect(article.title).not_to match(/Sticky: /)
+      end
+    end
+  end
+
   describe '#host' do
     let(:article) do
       FactoryBot.build(:article, url: 'https://xkcd.com/314').presenter
