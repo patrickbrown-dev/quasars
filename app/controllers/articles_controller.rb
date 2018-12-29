@@ -6,8 +6,12 @@ class ArticlesController < ApplicationController
 
   def index
     page = params[:page] || 1
-    @sticky_articles = Article.where(is_sticky: true)
-    @articles = Article.hot.page(page).per(20)
+    @sticky_articles = if page == 1
+                         Article.where(is_sticky: true)
+                       else
+                         []
+                       end
+    @articles = Article.where(is_sticky: false).hot.page(page).per(20)
   end
 
   def show
