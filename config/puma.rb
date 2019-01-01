@@ -5,6 +5,6 @@ port        ENV.fetch('PORT') { 3000 }
 
 environment ENV.fetch('RAILS_ENV') { 'development' }
 
-bind 'unix:///var/run/puma.sock' if ENV['RAILS_ENV'] == 'production'
+# bind 'unix:///var/run/puma.sock' if ENV['RAILS_ENV'] == 'production'
 
 plugin :tmp_restart
