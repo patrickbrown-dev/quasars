@@ -1,7 +1,10 @@
 language: ruby
 
-services:
- - docker
+rvm:
+  - 2.6.0
 
-script:
- - docker-compose run quasars bundle exec rake
+services:
+  - docker
+
+before_script: docker-compose build quasars
+script: docker-compose run quasars bundle exec rake
