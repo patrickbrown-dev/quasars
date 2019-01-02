@@ -11,3 +11,4 @@ env:
 
 before_script:
  - psql -c 'create database quasars_test;' -U postgres
+ - bin/rails db:migrate RAILS_ENV=test
