@@ -8,8 +8,7 @@ AllCops:
     - 'spec/rails_helper.rb'
     - 'config/environments/*.rb'
     - 'config/deploy/*.rb'
-    - 'bin/update'
-    - 'bin/setup'
+    - 'bin/**/*'
     - 'vendor/**/*'
 
 Style/FrozenStringLiteralComment:
