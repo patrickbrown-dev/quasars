@@ -9,9 +9,12 @@ RUN mkdir -p $RAILS_ROOT
 
 WORKDIR $RAILS_ROOT
 
-COPY . .
+COPY Gemfile .
 
 RUN bundle install --binstubs
+
+COPY . .
+
 RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
