@@ -36,6 +36,11 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :email_notifications %><br />
+    <%= f.check_box :email_notifications %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

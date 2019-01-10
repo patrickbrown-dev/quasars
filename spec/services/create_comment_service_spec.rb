@@ -67,5 +67,24 @@ RSpec.describe CreateCommentService, type: :service do
                 .with(comment: comment, user: parent_comment.user)
       end
     end
+
+    context 'when parent user has notifications turned off' do
+      let(:article) { FactoryBot.build(:article) }
+      let(:parent_user) { FactoryBot.build(:user, email_notifications: false) }
+      let(:parent_comment) { FactoryBot.create(:comment, article: article, user: parent_user) }
+      let(:comment) do
+        FactoryBot.build(:comment,
+                         article: article,
+                         parent_comment_id: parent_comment.id)
+      end
+
+      it 'sends an email to the parent comment user' do
+        service.run(comment)
+
+        expect(CommentMailer)
+          .not_to have_received(:with)
+                .with(comment: comment, user: parent_comment.user)
+      end
+    end
   end
 end
