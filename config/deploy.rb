@@ -14,9 +14,9 @@ namespace :deploy do
 
   task :floating_ip do
     if `curl https://quasa.rs/healthcheck`.include?('green')
-      %x(RAILS_ENV=development rake digital_ocean:floating_ip['blue'])
+      `RAILS_ENV=development rake digital_ocean:floating_ip['blue']`
     else
-      %x(RAILS_ENV=development rake digital_ocean:floating_ip['green'])
+      `RAILS_ENV=development rake digital_ocean:floating_ip['green']`
     end
   end
 end
