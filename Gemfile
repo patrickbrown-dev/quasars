@@ -42,6 +42,7 @@ group :development do
   gem 'capistrano-bundler', '~> 1.3', require: false
   gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rvm', require: false
+  gem 'droplet_kit'
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
