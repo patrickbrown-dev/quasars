@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.59.1', require: false
   gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver'
+  gem 'timecop'
 end
 
 group :development do
