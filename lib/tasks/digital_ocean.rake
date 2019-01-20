@@ -4,8 +4,6 @@ QUASARS_APP_GREEN_ID = 94_899_103
 QUASARS_APP_BLUE_ID = 129_410_947
 
 namespace :digital_ocean do
-  require 'droplet_kit'
-
   desc 'Change floating IP assignment'
   task :floating_ip, [:deploy] => :environment do |_tasks, args|
     deploy_target_id = if args[:deploy] == 'green'
