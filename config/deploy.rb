@@ -12,15 +12,14 @@ namespace :deploy do
     end
   end
 
-  # TODO: Not working
-  # task :floating_ip do
-  #   if `curl https://quasa.rs/healthcheck`.include?('green')
-  #     `RAILS_ENV=development rake digital_ocean:floating_ip['blue']`
-  #   else
-  #     `RAILS_ENV=development rake digital_ocean:floating_ip['green']`
-  #   end
-  # end
+  task :floating_ip do
+    if `curl https://quasa.rs/healthcheck`.include?('green')
+      `RAILS_ENV=development rake digital_ocean:floating_ip['blue']`
+    else
+      `RAILS_ENV=development rake digital_ocean:floating_ip['green']`
+    end
+  end
 end
 
 after 'deploy:symlink:release', 'deploy:restart_quasars'
-# after 'deploy:restart_quasars', 'deploy:floating_ip'
+after 'deploy:restart_quasars', 'deploy:floating_ip'
