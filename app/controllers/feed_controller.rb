@@ -18,7 +18,10 @@ class FeedController < ApplicationController
           item.title = article.title
           item.updated = article.created_at.to_s
           unless article.description.empty?
-            item.description = article.description
+            item.description = CommonMarker.render_html(
+              article.description,
+              :DEFAULT
+            )
           end
         end
       end

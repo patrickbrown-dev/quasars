@@ -29,8 +29,8 @@ RSpec.describe FeedController, type: :controller do
 
       it 'includes the article description' do
         get :index
-        expect(response.body)
-          .to include("<summary>#{article.description}</summary>")
+        text = "<summary>&lt;p&gt;#{article.description}&lt;/p&gt;\n</summary>"
+        expect(response.body).to include(text)
       end
 
       it 'includes the article title' do
