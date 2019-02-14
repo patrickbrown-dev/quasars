@@ -8,12 +8,10 @@
 4. Supply tag when prompted (it should default to latest tag).
 5. Monitor release and post-deploy.
 
-Floating IP assignment is completely automated during deploy.
 
 ### Rollbacks
 
-In the case of a bad deploy, issue the `rake digital_ocean:floating_ip[DEPLOY]`
-command where `DEPLOY` is the previous deployment environment. For more
+In the case of a bad deploy, issue the `cap production deploy:rollback`. For more
 information, refer to the capistrano [rollback documentation][1].
 
 [1]: https://capistranorb.com/documentation/getting-started/rollbacks/
