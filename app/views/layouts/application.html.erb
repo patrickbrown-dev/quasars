@@ -28,9 +28,7 @@
             <%= link_to image_tag('quasars_logo.svg', size: '30x30'), '/' %>
           </td>
           <td style="width:551px;">
-            <strong><%= link_to 'Quasars', '/' %></strong>
-            <span style="padding-right:12px;color:<%= ENV['DEPLOY'].try(:downcase) || 'red' %>">●</span>
-
+            <strong><%= link_to 'Quasars', '/', style: 'padding-right:12px' %></strong>
             <%= link_to 'New Article', new_article_path, style: "padding-right:12px" %>
             <%= link_to 'Atom Feed', feed_path, style: "padding-right:12px" %>
             <% if user_signed_in? && current_user.moderator %>

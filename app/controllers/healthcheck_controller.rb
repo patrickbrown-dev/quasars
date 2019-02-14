@@ -12,11 +12,9 @@ class HealthcheckController < ApplicationController
 
   def message(health)
     env     = Rails.env
-    deploy  = ENV.fetch('DEPLOY') { 'local' }
     <<-MSG.strip_heredoc
       status:\t#{health}
       env:\t#{env}
-      deploy:\t#{deploy}
     MSG
   end
 end
