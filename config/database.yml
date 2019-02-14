@@ -13,3 +13,4 @@ test:
 
 production:
   url: <%= ENV["DATABASE_URL"] %>
+  prepared_statements: false

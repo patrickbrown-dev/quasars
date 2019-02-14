@@ -1,11 +1,7 @@
-if `curl https://quasa.rs/healthcheck`.include?('green')
-  set :deploy_target, 'blue'
-else
-  set :deploy_target, 'green'
-end
-
 set :stage, 'production'
-server "#{fetch(:deploy_target)}.quasa.rs", user: 'root', roles: %w[app web]
+
+server '167.99.104.17', user: 'root', roles: %w[app web]
+server '167.99.172.20', user: 'root', roles: %w[app web]
 
 set :branch do
   default_tag = `git tag`.split("\n").last
