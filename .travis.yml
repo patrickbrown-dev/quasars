@@ -12,7 +12,10 @@ env:
 
 before_script:
  - psql -c 'create database quasars_test;' -U postgres
- - bin/rails db:migrate RAILS_ENV=test
+ - docker-compose build quasars nginx
+ - docker-compose run quasars bin/rails db:migrate RAILS_ENV=test
+
+script: docker-compose run quasars
 
 deploy:
   provider: script
