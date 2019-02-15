@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quasars
+  labels:
+    run: quasars
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-path: "/healthcheck"
+    service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "cca2f8f8-693a-42fb-9da0-e03d8cf4604a"
+    service.beta.kubernetes.io/do-loadbalancer-redirect-http-to-https: "true"
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 3000
+  selector:
+    run: quasars

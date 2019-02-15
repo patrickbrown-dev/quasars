@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quasars
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: quasars
+  template:
+    metadata:
+      labels:
+        run: quasars
+    spec:
+      containers:
+        - name: quasars
+          image: kineticdial/quasars:2046ca0f9b7452464f5f8680fcf7830f1ac96e07
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: quasars-secrets
+                  key: database_url
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: quasars-secrets
+                  key: secret_key_base
+            - name: SENDGRID_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: quasars-secrets
+                  key: sendgrid_password
+            - name: SENDGRID_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: quasars-secrets
+                  key: sendgrid_api_key
+            - name: RAILS_ENV
+              value: "production"
+            - name: RAILS_SERVE_STATIC_FILES
+              value: "true"
+            - name: SENDGRID_USERNAME
+              value: "kineticdial"

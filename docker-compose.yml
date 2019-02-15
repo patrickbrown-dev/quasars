@@ -14,21 +14,13 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile.nginx
-    image: kineticdial/quasars-nginx
-    depends_on:
-      - quasars
-    ports:
-      - 80:80
-
   quasars:
     build: .
     image: kineticdial/quasars
     depends_on:
       - postgres
+    ports:
+      - 3000:3000
     volumes:
       - /var/www/quasars
     env_file:
