@@ -14,6 +14,5 @@ deploy:
   provider: script
   script:
    - bash docker_push.sh
-  # TODO: Change to master
   on:
-    branch: docker
+    branch: master
