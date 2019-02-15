@@ -1,15 +1,10 @@
 language: generic
 
 services:
- - postgresql
  - docker
 
-env:
- - DATABASE_URL=postgresql://quasars_test@postgres:5432/quasars?encoding=utf8&pool=5&timeout=5000
-
 before_script:
- - psql -c 'create database quasars_test;' -U postgres
- - docker-compose build quasars nginx
+ - docker-compose build
  - docker-compose run quasars bin/rails db:migrate RAILS_ENV=test
 
 script:
