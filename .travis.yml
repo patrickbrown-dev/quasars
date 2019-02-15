@@ -1,7 +1,4 @@
-language: ruby
-
-rvm:
- - 2.6.0
+language: generic
 
 services:
  - postgresql
@@ -15,11 +12,13 @@ before_script:
  - docker-compose build quasars nginx
  - docker-compose run quasars bin/rails db:migrate RAILS_ENV=test
 
-script: docker-compose run quasars
+script:
+ - docker-compose run quasars rake
 
 deploy:
   provider: script
-  script: bash docker_push.sh
+  script:
+   - bash docker_push.sh
   # TODO: Change to master
   on:
     branch: docker
