@@ -29,22 +29,14 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'codecov', require: false
   gem 'factory_bot_rails'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.59.1', require: false
+  gem 'rubocop', '~> 0.61.1', require: false
   gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver'
   gem 'timecop'
 end
 
-group :development do
-  gem 'capistrano', '~> 3.10', require: false
-  gem 'capistrano-bundler', '~> 1.3', require: false
-  gem 'capistrano-rails', '~> 1.3', require: false
-  gem 'capistrano-rvm', require: false
-  gem 'droplet_kit'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-end
-
-ruby '2.5.1'
+ruby '2.6.0'

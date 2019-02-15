@@ -1,8 +1,18 @@
-language: ruby
-rvm:
- - 2.5.1
+language: generic
+
 services:
- - postgresql
+ - docker
 
 before_script:
- - psql -c 'create database quasars_test;' -U postgres
+ - docker-compose build
+ - docker-compose run quasars bin/rails db:migrate RAILS_ENV=test
+
+script:
+ - docker-compose run quasars rake
+
+deploy:
+  provider: script
+  script:
+   - bash docker_push.sh
+  on:
+    branch: master
