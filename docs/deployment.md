@@ -2,17 +2,16 @@
 
 ### Releases
 
-1. Create a [new release][2] and bump tag version (e.g. `0.0.1` to `0.0.2`).
-2. Do a `git pull` in your local codebase on `master`.
-3. Initiate a capistrano deploy (e.g. `cap production deploy`)
-4. Supply tag when prompted (it should default to latest tag).
-5. Monitor release and post-deploy.
+You will need the [quasars-k8s][2] repo checked out on your local machine and in your `pwd`.
 
+1. Grab the docker image tag you want to deploy (e.g. `de69322`) from [docker hub][1].
+2. Alter the `deployments.yml` file's `.spec.template.spec.containers[0].image` tag
+   to the docker image tag you grabbed from before (e.g. `image: kineticdial/quasars:de69322`).
+3. Run the deployment with `kubectl apply -f deployment.yaml`.
+4. Monitor the deployment with `kubectl rollout status deployment quasars`.
+5. Verify the release was successful by visiting https://quasa.rs and monitoring email
+   for exceptions.
+6. Commit and push the changes to the `quasars-k8s` repository.
 
-### Rollbacks
-
-In the case of a bad deploy, issue the `cap production deploy:rollback`. For more
-information, refer to the capistrano [rollback documentation][1].
-
-[1]: https://capistranorb.com/documentation/getting-started/rollbacks/
-[2]: https://github.com/kineticdial/quasars/releases/new
+[1]: https://hub.docker.com/r/kineticdial/quasars/tags
+[2]: https://github.com/kineticdial/quasars-k8s
