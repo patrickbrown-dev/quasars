@@ -27,7 +27,6 @@ gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'capybara', '~> 2.13'
-  gem 'codecov', require: false
   gem 'factory_bot_rails'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry'
