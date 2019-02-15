@@ -17,5 +17,6 @@ before_script:
 deploy:
   provider: script
   script: bash docker_push.sh
-  on:
-    branch: master
+  # TODO: Remove comments
+  # on:
+    # branch: master
