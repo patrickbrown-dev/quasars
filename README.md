@@ -7,3 +7,4 @@
 - [Documentation](https://docs.quasa.rs)
 - [Issue tracker](https://github.com/kineticdial/quasars/issues)
 - [Container images](https://hub.docker.com/r/kineticdial/quasars)
+- [Kubernetes Config](https://github.com/kineticdial/quasars-k8s)
