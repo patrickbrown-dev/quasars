@@ -11,7 +11,7 @@ class HealthcheckController < ApplicationController
   private
 
   def message(health)
-    env     = Rails.env
+    env = Rails.env
     <<-MSG.strip_heredoc
       status:\t#{health}
       env:\t#{env}
