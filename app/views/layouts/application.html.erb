@@ -27,18 +27,17 @@
           <td style="width:30px;text-align:center;">
             <%= link_to image_tag('quasars_logo.svg', size: '30x30'), '/' %>
           </td>
-          <td style="width:601px;">
-            <strong><%= link_to 'Quasars', '/' %></strong>
-            <span style="padding-right:12px;color:<%= ENV['DEPLOY'].try(:downcase) || 'red' %>">●</span>
-
+          <td style="width:551px;">
+            <strong><%= link_to 'Quasars', '/', style: 'padding-right:12px' %></strong>
             <%= link_to 'New Article', new_article_path, style: "padding-right:12px" %>
+            <%= link_to 'Atom Feed', feed_path, style: "padding-right:12px" %>
             <% if user_signed_in? && current_user.moderator %>
             <%= link_to 'Moderation Queue', reports_path, style: "padding-right:12px" %>
             <% end %>
           </td>
 
           <% if user_signed_in? %>
-          <td style="width:137px;text-align:right;">
+          <td style="width:187px;text-align:right;">
             <%= link_to "#{current_user.username} (#{current_user.karma})", edit_user_registration_path, style: "padding-right: 12px" %>
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
           </td>

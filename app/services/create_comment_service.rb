@@ -7,7 +7,7 @@ class CreateCommentService < ApplicationService
     if comment.save
       Vote.create!(user: comment.user, voteable: comment)
 
-      unless comment.user == user_replied_to
+      if should_email?(comment.user, user_replied_to)
         CommentMailer
           .with(comment: comment, user: user_replied_to)
           .comment_email.deliver_later
@@ -17,5 +17,12 @@ class CreateCommentService < ApplicationService
     else
       Optional.none
     end
+  end
+
+  private
+
+  def should_email?(comment_user, user_replied_to)
+    user_replied_to.email_notifications &&
+      comment_user != user_replied_to
   end
 end

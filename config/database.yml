@@ -12,3 +12,4 @@ test:
 
 production:
   <<: *default
+  prepared_statements: false
