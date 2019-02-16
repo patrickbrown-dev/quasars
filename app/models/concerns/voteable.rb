@@ -21,6 +21,8 @@ module Voteable
     # only ever used where "user" is the current user, so the call
     # on user.votes will be cached each consecutive time it is
     # called.
+    return false if user.nil?
+
     !(votes.map(&:id) & user.votes.map(&:id)).empty?
   end
 end
