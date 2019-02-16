@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
                        else
                          []
                        end
-    @articles = Article.where(is_sticky: false).hot.page(page).per(20)
+    @articles = Article.hot.where(is_sticky: false).page(page).per(20)
   end
 
   def show

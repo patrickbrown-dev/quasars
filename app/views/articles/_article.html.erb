@@ -19,7 +19,7 @@
     <em><small><%= article.host %></small></em><br>
     <small>Posted by <%= link_to_if article.user.active_for_authentication?, article.user.username, user_path(article.user.username) %> <%= article.created_at_in_words %> ago
       <% if locals[:show_comments?] %>
-      | <%= link_to "#{article.comments.count} comments", article_path_with_slug(article.uid, article.slug) %>
+      | <%= link_to "#{article.comments.size} comments", article_path_with_slug(article.uid, article.slug) %>
       <% end %>
       <% if user_signed_in? %>
       | <%= link_to 'Report', new_report_path(report: {reportable_id: article.id, reportable_type: article.class.to_s}) %>

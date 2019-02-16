@@ -4,6 +4,6 @@
 <% if @article.description.present? %>
 <meta name="twitter:description" content="<%= truncate(@article.description, length: 197) %>">
 <% else %>
-<meta name="twitter:description" content="<%= @article.comments.count %> comments.">
+<meta name="twitter:description" content="<%= @article.comments.size %> comments.">
 <% end %>
 <meta name="twitter:image" content="<%= asset_url('quasars_logo_512.png') %>">
