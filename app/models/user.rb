@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :articles
   has_many :comments
+  has_many :votes
 
   validates :username, presence: true, uniqueness: true
 
