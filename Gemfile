@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt', '~> 3.1.11'
-gem 'devise', '~> 4.4.3'
+gem 'devise', '>= 4.6.0'
 
 gem 'kaminari'
 gem 'kaminari-core', '~> 1.1.1'
