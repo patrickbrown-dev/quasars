@@ -25,6 +25,8 @@ gem 'commonmarker'
 gem 'exception_notification'
 gem 'sendgrid-ruby'
 
+gem 'ddtrace'
+
 group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
