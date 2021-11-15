@@ -1,9 +1,9 @@
 # Quasars
 
-[![Build Status](https://travis-ci.org/kineticdial/quasars.svg?branch=master)](https://travis-ci.org/kineticdial/quasars)
+[![Build Status](https://travis-ci.org/p16n/quasars.svg?branch=master)](https://travis-ci.org/kineticdial/quasars)
 
-- [Live site](https://quasa.rs)
-- [Documentation](https://docs.quasa.rs)
-- [Issue tracker](https://github.com/kineticdial/quasars/issues)
+- ~~[Live site](https://quasa.rs)~~ No longer active.
+- ~~[Documentation](https://docs.quasa.rs)~~ No longer active.
+- [Issue tracker](https://github.com/p16n/quasars/issues)
 - [Container images](https://hub.docker.com/r/kineticdial/quasars)
-- [Kubernetes Config](https://github.com/kineticdial/quasars-k8s)
+- [Kubernetes Config](https://github.com/p16n/quasars-k8s)
